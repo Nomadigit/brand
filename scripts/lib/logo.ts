@@ -63,7 +63,7 @@ export function wordmark(size: number) {
 
 export function wordmarkSvg(color: string, size = 96, title = "Nomadigit"): string {
   const run = wordmark(size);
-  const descent = size * 0.06;
+  const descent = run.descent;
   const pad = size * 0.02;
   const body = `<path transform="translate(${round(pad)} ${round(run.ascender + pad)})" d="${run.d}" fill="${color}"/>`;
   return svgDoc(run.width + pad * 2, run.ascender + descent + pad * 2, body, title);
@@ -82,7 +82,8 @@ export function lockupBody(c: MarkColors, wordColor: string, size: number, x = 0
   const body =
     placeMark(c, x, y, h) +
     `<path transform="translate(${round(x + mw + gap)} ${round(baseline)})" d="${run.d}" fill="${wordColor}"/>`;
-  return { body, width: mw + gap + run.width, height: h };
+  // The "g" descender hangs below the baseline (and below the mark); the box must include it.
+  return { body, width: mw + gap + run.width, height: Math.max(h, h + run.descent) };
 }
 
 export function lockupSvg(c: MarkColors, wordColor: string, size = 96, title = "Nomadigit"): string {

@@ -4,7 +4,7 @@ Use the flat tokens: `dist/tokens.flat.json` (dot keys like `color.light.primary
 `dist/tokens.json` (for Style Dictionary or Tokens Studio). Fetch a pinned tag, don't copy values by hand:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.0/dist/tokens.flat.json -o brand-tokens.json
+curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.1/dist/tokens.flat.json -o brand-tokens.json
 ```
 
 ## Jetpack Compose
@@ -13,7 +13,7 @@ Generate `BrandColors.kt` from `tokens.flat.json` in a Gradle task, or paste the
 the tag:
 
 ```kotlin
-// Nomadigit brand v1.0.0 — from dist/tokens.flat.json; update via the brand repo, not by hand.
+// Nomadigit brand v1.0.1 — from dist/tokens.flat.json; update via the brand repo, not by hand.
 val LightColors = lightColorScheme(
     primary = Color(0xFF04556D), onPrimary = Color(0xFFFFFFFF),
     background = Color(0xFFF7FBFD), surface = Color(0xFFFFFFFF), onSurface = Color(0xFF101D22),

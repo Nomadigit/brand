@@ -1,8 +1,7 @@
+<!-- GitHub picks the variant by its own theme via #gh-*-mode-only; <picture> media queries follow the OS instead and can show the dark logo on a light page. -->
 <p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/logo/lockup-horizontal-dark.svg">
-    <img src="assets/logo/lockup-horizontal.svg" alt="Nomadigit" height="48">
-  </picture>
+  <img src="assets/logo/lockup-horizontal.svg#gh-light-mode-only" alt="Nomadigit" height="48">
+  <img src="assets/logo/lockup-horizontal-dark.svg#gh-dark-mode-only" alt="Nomadigit" height="48">
 </p>
 
 # Nomadigit brand
@@ -29,12 +28,12 @@ formats for every stack, plus guidelines that people and AI agents follow.
 
 ```html
 <!-- any web page -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.0/dist/brand.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.1/dist/brand.css">
 ```
 
 ```bash
-npm i github:Nomadigit/brand#v1.0.0      # npm projects: CSS, Tailwind preset, API
-curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.0/dist/tokens.flat.json   # Go, Kotlin, anything
+npm i git+https://github.com/Nomadigit/brand.git#v1.0.1      # npm projects: CSS, Tailwind preset, API
+curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.1/dist/tokens.flat.json   # Go, Kotlin, anything
 ```
 
 The recipes in [`guidelines/recipes/`](guidelines/recipes/) cover web, Telegram, slides, CV and docs, social images, and native code.

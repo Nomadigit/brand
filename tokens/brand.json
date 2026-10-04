@@ -2,7 +2,7 @@
   "$schema": "../schema/brand.schema.json",
   "meta": {
     "name": "Nomadigit",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Nomadigit brand tokens: the single source for every site, bot, app, deck, document and image.",
     "updatedAt": "2026-10-04"
   },

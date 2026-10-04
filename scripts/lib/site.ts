@@ -214,7 +214,7 @@ const brand = require("@nomadigit/brand");</code></pre>
     <span class="eyebrow">Use it</span>
     <h2>Files</h2>
     <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v${esc(v)}/dist/brand.css"&gt;
-npm i github:Nomadigit/brand#v${esc(v)}</code></pre>
+npm i git+https://github.com/Nomadigit/brand.git#v${esc(v)}</code></pre>
     <div class="grid dl">${downloads.map(([p, d]) => `<a href="${p}"><code>${p}</code><span>${d}</span></a>`).join("")}</div>
   </section>
 </main>

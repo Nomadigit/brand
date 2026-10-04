@@ -44,7 +44,7 @@ and the logos.
 #!/usr/bin/env bash
 # scripts/sync-brand.sh: re-run when bumping the brand version
 set -euo pipefail
-VERSION=${1:-v1.0.0}
+VERSION=${1:-v1.0.1}
 DEST=internal/webapp/static/brand
 rm -rf "$DEST" && mkdir -p "$DEST"
 curl -fsSL "https://codeload.github.com/Nomadigit/brand/tar.gz/refs/tags/$VERSION" \

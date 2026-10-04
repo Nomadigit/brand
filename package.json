@@ -1,6 +1,6 @@
 {
   "name": "@nomadigit/brand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nomadigit brand kit: tokens, logo, fonts, templates and agent guidelines in one place.",
   "license": "MIT",
   "author": "Nomadigit",
@@ -18,6 +18,8 @@
     },
     "./tokens.json": "./tokens/brand.json",
     "./schema.json": "./schema/brand.schema.json",
+    "./tokens/*": "./tokens/*",
+    "./schema/*": "./schema/*",
     "./css": "./dist/tokens.css",
     "./fonts.css": "./assets/fonts/fonts.css",
     "./tailwind": "./dist/tailwind.preset.cjs",

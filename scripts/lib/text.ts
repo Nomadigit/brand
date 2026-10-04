@@ -50,6 +50,8 @@ export interface TextRun {
   width: number;
   /** Distance from baseline to the top of the tallest ascender ("d", "t"), in px. */
   ascender: number;
+  /** How far the drawn glyphs actually reach below the baseline ("g", "y", "р"), in px. */
+  descent: number;
   xHeight: number;
 }
 
@@ -58,12 +60,15 @@ export function textPath(text: string, faces: Font[], size: number, tracking = 0
   let x = 0;
   let d = "";
   let prev: { face: Font; glyph: opentype.Glyph } | undefined;
+  let maxY = 0;
   for (const ch of Array.from(text)) {
     const face = pickFace(faces, ch);
     const glyph = face.charToGlyph(ch);
     const scale = size / face.unitsPerEm;
     if (prev && prev.face === face) x += face.getKerningValue(prev.glyph, glyph) * scale;
-    d += pathData(face.getPath(ch, x, 0, size, { kerning: false }));
+    const glyphPath = face.getPath(ch, x, 0, size, { kerning: false });
+    maxY = Math.max(maxY, glyphPath.getBoundingBox().y2);
+    d += pathData(glyphPath);
     x += (glyph.advanceWidth ?? 0) * scale + tracking * size;
     prev = { face, glyph };
   }
@@ -75,6 +80,7 @@ export function textPath(text: string, faces: Font[], size: number, tracking = 0
     d,
     width: x - tracking * size,
     ascender: dBox.y2 * scale,
+    descent: maxY,
     xHeight: (os2?.sxHeight || main.charToGlyph("x").getBoundingBox().y2) * scale,
   };
 }
