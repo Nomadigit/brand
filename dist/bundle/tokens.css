@@ -1,0 +1,112 @@
+/* Generated from tokens/brand.json by @nomadigit/brand. Do not edit; edit the tokens and run `npm run build`. */
+:root {
+  --color-primary: #04556D;
+  --color-text: #101D22;
+  --color-background: #F7FBFD;
+  --color-accent: #FC5950;
+  --color-border: #D6E2E7;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #EDF3F6;
+  --color-muted: #526066;
+  --color-on-primary: #FFFFFF;
+  --color-on-accent: #101D22;
+  --color-link: #04556D;
+  --color-focus: #2F829F;
+  --color-success: #1D7D3E;
+  --color-warning: #B87609;
+  --color-error: #9D203A;
+  --color-info: #0470A5;
+  --color-primary-50: #EAF8FD;
+  --color-primary-100: #C9EFFF;
+  --color-primary-200: #96DDF9;
+  --color-primary-300: #71C1E0;
+  --color-primary-400: #51A1BF;
+  --color-primary-500: #2F829F;
+  --color-primary-600: #0B6A87;
+  --color-primary-700: #0A5268;
+  --color-primary-800: #013C4D;
+  --color-primary-900: #012632;
+  --font-web-family: Onest, system-ui, sans-serif;
+  --font-display-family: Onest, system-ui, sans-serif;
+  --font-mono-family: "JetBrains Mono", ui-monospace, monospace;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 600;
+  --font-weight-display: 700;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-body: 16px;
+  --font-size-lg: 18px;
+  --font-size-h3: 20px;
+  --font-size-h2: 28px;
+  --font-size-h1: 36px;
+  --font-size-display: 48px;
+  --line-height-tight: 1.1;
+  --line-height-heading: 1.2;
+  --line-height-body: 1.55;
+  --letter-spacing-display: -0.02em;
+  --letter-spacing-heading: -0.01em;
+  --letter-spacing-body: 0;
+  --letter-spacing-label: 0.08em;
+  --spacing-unit: 8px;
+  --radius: 10px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 320ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-exit: cubic-bezier(0.3, 0, 1, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #7ACAE9;
+    --color-text: #E6ECEF;
+    --color-background: #0A1113;
+    --color-accent: #FE8B7F;
+    --color-border: #2A3539;
+    --color-surface: #131B1E;
+    --color-surface-muted: #1A2428;
+    --color-muted: #9FAAAE;
+    --color-on-primary: #0A1113;
+    --color-on-accent: #0A1113;
+    --color-link: #7ACAE9;
+    --color-focus: #96DDF9;
+    --color-success: #65C67D;
+    --color-warning: #F2AF48;
+    --color-error: #E8809A;
+    --color-info: #5FB8F2;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-primary: #7ACAE9;
+  --color-text: #E6ECEF;
+  --color-background: #0A1113;
+  --color-accent: #FE8B7F;
+  --color-border: #2A3539;
+  --color-surface: #131B1E;
+  --color-surface-muted: #1A2428;
+  --color-muted: #9FAAAE;
+  --color-on-primary: #0A1113;
+  --color-on-accent: #0A1113;
+  --color-link: #7ACAE9;
+  --color-focus: #96DDF9;
+  --color-success: #65C67D;
+  --color-warning: #F2AF48;
+  --color-error: #E8809A;
+  --color-info: #5FB8F2;
+  color-scheme: dark;
+}

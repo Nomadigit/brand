@@ -1,0 +1,337 @@
+{
+  "$schema": "../schema/brand.schema.json",
+  "meta": {
+    "name": "Nomadigit",
+    "version": "1.0.0",
+    "description": "Nomadigit brand tokens: the single source for every site, bot, app, deck, document and image.",
+    "updatedAt": "2026-10-04"
+  },
+  "identity": {
+    "displayName": "Nomadigit",
+    "tagline": "Software made on the move",
+    "website": "https://github.com/Nomadigit"
+  },
+  "brandArchitecture": {
+    "master": "Nomadigit",
+    "personal": "Danil Shubin",
+    "signature": "Danil Shubin · Nomadigit",
+    "rules": [
+      "Products, bots and apps carry the Nomadigit mark; the product name comes first, Nomadigit second (\"Reminder · Nomadigit\").",
+      "Personal documents (CV, talks, cover letters) lead with \"Danil Shubin\" and sign off with the signature line.",
+      "Never invent sub-brands with their own logos or palettes; a product differs only by its name."
+    ]
+  },
+  "logo": {
+    "enabled": true,
+    "text": "nomadigit",
+    "lightSrc": "assets/logo/lockup-horizontal.svg",
+    "darkSrc": "assets/logo/lockup-horizontal-dark.svg",
+    "favicon": "assets/favicon/favicon.svg",
+    "minSize": "16px",
+    "clearSpace": "0.5x",
+    "variants": {
+      "mark": {
+        "light": "assets/logo/mark.svg",
+        "dark": "assets/logo/mark-dark.svg",
+        "mono": "assets/logo/mark-mono.svg",
+        "inverse": "assets/logo/mark-inverse.svg"
+      },
+      "wordmark": {
+        "light": "assets/logo/wordmark.svg",
+        "dark": "assets/logo/wordmark-dark.svg",
+        "mono": "assets/logo/wordmark-mono.svg"
+      },
+      "lockup": {
+        "light": "assets/logo/lockup-horizontal.svg",
+        "dark": "assets/logo/lockup-horizontal-dark.svg",
+        "mono": "assets/logo/lockup-horizontal-mono.svg"
+      },
+      "app-icon": {
+        "light": "assets/logo/app-icon.svg"
+      }
+    },
+    "usage": {
+      "do": [
+        "Use the mark alone at 16-48px (favicons, avatars, app icons); use the lockup when there is room for the name.",
+        "Keep clear space of at least half the mark's height on every side.",
+        "On photos or busy backgrounds place the inverse mark on a solid primary chip.",
+        "Use the mono variant when only one color is available (embossing, single-color print, system tray)."
+      ],
+      "dont": [
+        "Don't recolor the route or the waypoint outside the palette, and don't swap their colors.",
+        "Don't stretch, rotate, outline, add shadows, gradients or glow.",
+        "Don't retype the wordmark in another font; always use the SVG.",
+        "Don't place the light mark on mid-tone backgrounds where contrast drops below 3:1.",
+        "Don't use the accent red for error states; errors use the darker semantic error color plus an icon and text."
+      ]
+    }
+  },
+  "colors": {
+    "primary": "#04556D",
+    "accent": "#FC5950",
+    "text": "#101D22",
+    "background": "#F7FBFD",
+    "border": "#D6E2E7",
+    "roles": {
+      "surface": "#FFFFFF",
+      "surfaceMuted": "#EDF3F6",
+      "muted": "#526066",
+      "onPrimary": "#FFFFFF",
+      "onAccent": "#101D22",
+      "link": "#04556D",
+      "focus": "#2F829F"
+    },
+    "semantic": {
+      "success": "#1D7D3E",
+      "warning": "#B87609",
+      "error": "#9D203A",
+      "info": "#0470A5"
+    },
+    "darkMode": {
+      "primary": "#7ACAE9",
+      "accent": "#FE8B7F",
+      "text": "#E6ECEF",
+      "background": "#0A1113",
+      "border": "#2A3539",
+      "logoSrc": "assets/logo/lockup-horizontal-dark.svg",
+      "roles": {
+        "surface": "#131B1E",
+        "surfaceMuted": "#1A2428",
+        "muted": "#9FAAAE",
+        "onPrimary": "#0A1113",
+        "onAccent": "#0A1113",
+        "link": "#7ACAE9",
+        "focus": "#96DDF9"
+      },
+      "semantic": {
+        "success": "#65C67D",
+        "warning": "#F2AF48",
+        "error": "#E8809A",
+        "info": "#5FB8F2"
+      }
+    },
+    "scale": {
+      "primary": {
+        "50": "#EAF8FD",
+        "100": "#C9EFFF",
+        "200": "#96DDF9",
+        "300": "#71C1E0",
+        "400": "#51A1BF",
+        "500": "#2F829F",
+        "600": "#0B6A87",
+        "700": "#0A5268",
+        "800": "#013C4D",
+        "900": "#012632"
+      }
+    }
+  },
+  "typography": {
+    "displayFont": {
+      "family": "Onest",
+      "fallback": [
+        "system-ui",
+        "sans-serif"
+      ],
+      "license": "OFL-1.1",
+      "weights": [
+        700
+      ],
+      "src": "assets/fonts/fonts.css"
+    },
+    "webFont": {
+      "family": "Onest",
+      "fallback": [
+        "system-ui",
+        "sans-serif"
+      ],
+      "license": "OFL-1.1",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "src": "assets/fonts/fonts.css"
+    },
+    "printFont": {
+      "family": "Onest",
+      "fallback": [
+        "Arial",
+        "sans-serif"
+      ],
+      "license": "OFL-1.1",
+      "weights": [
+        400,
+        500,
+        600,
+        700
+      ],
+      "src": "assets/fonts/fonts.css"
+    },
+    "monoFont": {
+      "family": "JetBrains Mono",
+      "fallback": [
+        "ui-monospace",
+        "monospace"
+      ],
+      "license": "OFL-1.1",
+      "weights": [
+        400,
+        500
+      ],
+      "src": "assets/fonts/fonts.css"
+    },
+    "sizes": {
+      "xs": "12px",
+      "sm": "14px",
+      "body": "16px",
+      "lg": "18px",
+      "h3": "20px",
+      "h2": "28px",
+      "h1": "36px",
+      "display": "48px"
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "bold": 600,
+      "display": 700
+    },
+    "lineHeight": {
+      "tight": 1.1,
+      "heading": 1.2,
+      "body": 1.55
+    },
+    "letterSpacing": {
+      "display": "-0.02em",
+      "heading": "-0.01em",
+      "body": "0",
+      "label": "0.08em"
+    }
+  },
+  "spacing": {
+    "unit": 8,
+    "borderRadius": 10,
+    "scale": {
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "6": "24px",
+      "8": "32px",
+      "12": "48px",
+      "16": "64px"
+    },
+    "radius": {
+      "sm": "6px",
+      "md": "10px",
+      "lg": "16px",
+      "pill": "999px"
+    }
+  },
+  "layout": {
+    "web": {
+      "maxWidth": "1120px",
+      "containerPadding": "24px"
+    },
+    "document": {
+      "pageSize": "A4",
+      "margins": {
+        "top": "15mm",
+        "right": "15mm",
+        "bottom": "15mm",
+        "left": "15mm"
+      }
+    },
+    "email": {
+      "maxWidth": "600px",
+      "contentPadding": "24px"
+    }
+  },
+  "iconography": {
+    "set": "Lucide",
+    "url": "https://lucide.dev",
+    "strokeWidth": 1.75,
+    "sizes": [
+      16,
+      20,
+      24
+    ],
+    "rules": [
+      "Use Lucide outline icons only; no filled or multicolor icon sets, no emoji as icons.",
+      "Icons take the color of the text next to them (currentColor); only status icons use semantic colors.",
+      "Pair an icon with a label unless the icon is universally understood (close, search, menu)."
+    ]
+  },
+  "motion": {
+    "durations": {
+      "fast": "120ms",
+      "base": "200ms",
+      "slow": "320ms"
+    },
+    "easing": {
+      "standard": "cubic-bezier(0.2, 0, 0, 1)",
+      "exit": "cubic-bezier(0.3, 0, 1, 1)"
+    },
+    "rules": [
+      "Motion confirms an action or shows where something came from; never decorative loops.",
+      "Respect prefers-reduced-motion: drop movement, keep opacity changes under 120ms."
+    ]
+  },
+  "imagery": {
+    "style": "Flat geometric illustration built from the mark's vocabulary: thick rounded routes, waypoint dots, arcs and grids. Petrol and its scale for shapes, signal red only for one focal point per image, generous empty space.",
+    "do": [
+      "Build images from simple vector shapes in palette colors; one red focal point.",
+      "Use real screenshots of the product inside a plain surface frame with the brand radius.",
+      "Keep text in images set in Onest and inside the 1200x630 safe area (64px margin)."
+    ],
+    "dont": [
+      "No stock photos of people at laptops, no 3D blobs, no purple-blue gradients, no neon glow.",
+      "No AI-generated photorealism standing in for the product.",
+      "No more than two palette colors plus neutrals in one illustration."
+    ],
+    "promptTemplate": "Flat vector illustration, geometric, thick rounded strokes and dots like a route on a map, color palette deep petrol blue #04556D, light petrol #96DDF9, off-white #F7FBFD, single signal red #FC5950 accent, lots of negative space, no text, no gradients, no shadows, no people. Subject: {{subject}}"
+  },
+  "voice": {
+    "languages": [
+      "ru",
+      "en"
+    ],
+    "tone": [
+      "clear",
+      "friendly",
+      "concise",
+      "practical"
+    ],
+    "principles": [
+      "Say what happens, then stop. One idea per sentence.",
+      "Talk to the reader as \"ты\" in Russian bots and products, \"вы\" in formal documents and CV.",
+      "Name things the way users call them, not the way the code calls them.",
+      "Errors explain what went wrong and what to do next, without apologies."
+    ],
+    "avoid": [
+      "hype",
+      "jargon",
+      "exclamation marks",
+      "emoji in system text",
+      "\"извините за неудобства\""
+    ],
+    "examples": [
+      {
+        "context": "Bot confirms a reminder",
+        "do": "Готово. Напомню завтра в 10:00.",
+        "dont": "Ваше напоминание было успешно создано! 🎉"
+      },
+      {
+        "context": "Input error",
+        "do": "Не понял время. Попробуй «завтра в 10» или «через 30 минут».",
+        "dont": "Произошла ошибка. Извините за неудобства."
+      },
+      {
+        "context": "Project description",
+        "do": "Telegram bot that reminds you on time, in your time zone.",
+        "dont": "A revolutionary AI-powered productivity solution."
+      }
+    ]
+  }
+}

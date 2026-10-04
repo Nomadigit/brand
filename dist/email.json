@@ -1,0 +1,13 @@
+{
+  "inline": {
+    "body": "margin:0;padding:0;background:#F7FBFD;font-family:Onest, system-ui, sans-serif;",
+    "container": "width:100%;max-width:600px;margin:0 auto;padding:24px;background:#F7FBFD;",
+    "heading": "font-family:Onest, system-ui, sans-serif;color:#04556D;font-size:28px;font-weight:600;margin:0 0 12px 0;",
+    "text": "font-family:Onest, system-ui, sans-serif;color:#101D22;font-size:16px;line-height:1.55;margin:0 0 12px 0;"
+  },
+  "styleTag": "<style>\n  body { margin: 0; padding: 0; background: #F7FBFD; }\n  .email-container { width: 100% !important; max-width: 600px; margin: 0 auto; }\n  @media only screen and (max-width: 600px) {\n    .email-container { width: 100% !important; }\n  }\n</style>",
+  "table": {
+    "open": "<table role=\"presentation\" class=\"email-container\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" align=\"center\" style=\"width:100%;max-width:600px;margin:0 auto;padding:24px;background:#F7FBFD;\"><tr><td>",
+    "close": "</td></tr></table>"
+  }
+}

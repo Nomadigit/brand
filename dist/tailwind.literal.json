@@ -1,0 +1,104 @@
+{
+  "theme": {
+    "extend": {
+      "colors": {
+        "primary": "#04556D",
+        "text": "#101D22",
+        "background": "#F7FBFD",
+        "accent": "#FC5950",
+        "border": "#D6E2E7",
+        "surface": "#FFFFFF",
+        "surface-muted": "#EDF3F6",
+        "muted": "#526066",
+        "on-primary": "#FFFFFF",
+        "on-accent": "#101D22",
+        "link": "#04556D",
+        "focus": "#2F829F",
+        "success": "#1D7D3E",
+        "warning": "#B87609",
+        "error": "#9D203A",
+        "info": "#0470A5",
+        "primary-50": "#EAF8FD",
+        "primary-100": "#C9EFFF",
+        "primary-200": "#96DDF9",
+        "primary-300": "#71C1E0",
+        "primary-400": "#51A1BF",
+        "primary-500": "#2F829F",
+        "primary-600": "#0B6A87",
+        "primary-700": "#0A5268",
+        "primary-800": "#013C4D",
+        "primary-900": "#012632"
+      },
+      "fontFamily": {
+        "web": [
+          "Onest",
+          "system-ui",
+          "sans-serif"
+        ],
+        "display": [
+          "Onest",
+          "system-ui",
+          "sans-serif"
+        ],
+        "mono": [
+          "JetBrains Mono",
+          "ui-monospace",
+          "monospace"
+        ]
+      },
+      "fontSize": {
+        "xs": "12px",
+        "sm": "14px",
+        "body": "16px",
+        "lg": "18px",
+        "h3": "20px",
+        "h2": "28px",
+        "h1": "36px",
+        "display": "48px"
+      },
+      "fontWeight": {
+        "regular": "400",
+        "medium": "500",
+        "bold": "600",
+        "display": "700"
+      },
+      "lineHeight": {
+        "tight": "1.1",
+        "heading": "1.2",
+        "body": "1.55"
+      },
+      "letterSpacing": {
+        "display": "-0.02em",
+        "heading": "-0.01em",
+        "body": "0",
+        "label": "0.08em"
+      },
+      "borderRadius": {
+        "DEFAULT": "10px",
+        "sm": "6px",
+        "md": "10px",
+        "lg": "16px",
+        "pill": "999px"
+      },
+      "spacing": {
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px",
+        "6": "24px",
+        "8": "32px",
+        "12": "48px",
+        "16": "64px"
+      },
+      "transitionDuration": {
+        "fast": "120ms",
+        "base": "200ms",
+        "slow": "320ms"
+      },
+      "transitionTimingFunction": {
+        "standard": "cubic-bezier(0.2, 0, 0, 1)",
+        "exit": "cubic-bezier(0.3, 0, 1, 1)"
+      }
+    }
+  }
+}

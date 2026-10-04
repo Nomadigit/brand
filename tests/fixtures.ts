@@ -53,6 +53,8 @@ export const fullBrand: BrandFile = {
     text: "#111111",
     background: "#ffffff",
     border: "#e0e0e0",
+    roles: { surface: "#ffffff", surfaceMuted: "#f1f3f4", muted: "#5f6368", onPrimary: "#ffffff" },
+    scale: { primary: { "100": "#d2e3fc", "500": "#1a73e8", "900": "#0b3d91" } },
     darkMode: {
       primary: "#8ab4f8",
       secondary: "#81c995",
@@ -61,16 +63,22 @@ export const fullBrand: BrandFile = {
       background: "#202124",
       border: "#3c4043",
       logoSrc: "/logo-dark.svg",
+      roles: { surface: "#292a2d", muted: "#9aa0a6", onPrimary: "#202124" },
+      semantic: { error: "#f28b82" },
     },
   },
   typography: {
     webFont: { family: "Inter", fallback: ["Helvetica Neue", "sans-serif"] },
     printFont: { family: "Georgia", fallback: ["Times New Roman", "serif"] },
+    displayFont: { family: "Space Display", fallback: ["sans-serif"] },
+    monoFont: { family: "JetBrains Mono", fallback: ["monospace"] },
     sizes: { h1: "32px", h2: "24px", h3: "20px", body: "16px", small: "13px" },
     weights: { regular: 400, medium: 500, bold: 700 },
     lineHeight: { heading: 1.2, body: 1.5 },
   },
-  spacing: { unit: 8, borderRadius: 6 },
+  spacing: { unit: 8, borderRadius: 6, scale: { "1": "4px", "2": "8px" }, radius: { sm: "4px", lg: "16px" } },
+  motion: { durations: { fast: "120ms" }, easing: { standard: "cubic-bezier(0.2, 0, 0, 1)" } },
+  brandArchitecture: { master: "Acme", signature: "Jane Doe · Acme" },
   layout: {
     web: { maxWidth: "1120px", containerPadding: "24px" },
     document: {

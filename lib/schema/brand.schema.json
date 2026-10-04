@@ -1,0 +1,606 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/Nomadigit/brand/main/schema/brand.schema.json",
+    "title": "BrandFile",
+    "type": "object",
+    "additionalProperties": true,
+    "required": [
+        "meta",
+        "identity",
+        "colors",
+        "typography",
+        "spacing",
+        "layout"
+    ],
+    "definitions": {
+        "colorValue": {
+            "type": "string",
+            "minLength": 1
+        },
+        "fontStack": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+                "family"
+            ],
+            "properties": {
+                "family": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "fallback": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "src": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string"
+                },
+                "weights": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "colorRoles": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "surface": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "surfaceMuted": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "muted": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "onPrimary": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "onAccent": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "link": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "focus": {
+                    "$ref": "#/definitions/colorValue"
+                }
+            }
+        },
+        "semanticColors": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "success": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "warning": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "error": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "info": {
+                    "$ref": "#/definitions/colorValue"
+                }
+            }
+        },
+        "colorScale": {
+            "type": "object",
+            "additionalProperties": {
+                "$ref": "#/definitions/colorValue"
+            }
+        },
+        "logoAsset": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "light": {
+                    "type": "string"
+                },
+                "dark": {
+                    "type": "string"
+                },
+                "mono": {
+                    "type": "string"
+                },
+                "inverse": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "properties": {
+        "meta": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+                "name",
+                "version"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "version": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "description": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "identity": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+                "displayName"
+            ],
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "tagline": {
+                    "type": "string"
+                },
+                "legalName": {
+                    "type": "string"
+                },
+                "website": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email"
+                }
+            }
+        },
+        "logo": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "text": {
+                    "type": "string"
+                },
+                "lightSrc": {
+                    "type": "string"
+                },
+                "darkSrc": {
+                    "type": "string"
+                },
+                "favicon": {
+                    "type": "string"
+                },
+                "minSize": {
+                    "type": [
+                        "number",
+                        "string"
+                    ],
+                    "description": "Number = px (legacy); string with unit preferred, e.g. \"16px\"."
+                },
+                "clearSpace": {
+                    "type": [
+                        "number",
+                        "string"
+                    ],
+                    "description": "Number = px (legacy); string with unit preferred, e.g. \"0.5x\" of mark height."
+                },
+                "variants": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/logoAsset"
+                    }
+                },
+                "usage": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "do": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dont": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "colors": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+                "primary",
+                "text",
+                "background"
+            ],
+            "properties": {
+                "primary": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "secondary": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "accent": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "semantic": {
+                    "$ref": "#/definitions/semanticColors"
+                },
+                "text": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "background": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "border": {
+                    "$ref": "#/definitions/colorValue"
+                },
+                "darkMode": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "primary": {
+                            "$ref": "#/definitions/colorValue"
+                        },
+                        "secondary": {
+                            "$ref": "#/definitions/colorValue"
+                        },
+                        "accent": {
+                            "$ref": "#/definitions/colorValue"
+                        },
+                        "text": {
+                            "$ref": "#/definitions/colorValue"
+                        },
+                        "background": {
+                            "$ref": "#/definitions/colorValue"
+                        },
+                        "border": {
+                            "$ref": "#/definitions/colorValue"
+                        },
+                        "logoSrc": {
+                            "type": "string"
+                        },
+                        "roles": {
+                            "$ref": "#/definitions/colorRoles"
+                        },
+                        "semantic": {
+                            "$ref": "#/definitions/semanticColors"
+                        }
+                    }
+                },
+                "roles": {
+                    "$ref": "#/definitions/colorRoles"
+                },
+                "scale": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/colorScale"
+                    }
+                }
+            }
+        },
+        "typography": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [
+                "webFont",
+                "printFont",
+                "sizes",
+                "weights"
+            ],
+            "properties": {
+                "webFont": {
+                    "$ref": "#/definitions/fontStack"
+                },
+                "printFont": {
+                    "$ref": "#/definitions/fontStack"
+                },
+                "sizes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "weights": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "lineHeight": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "number"
+                    }
+                },
+                "displayFont": {
+                    "$ref": "#/definitions/fontStack"
+                },
+                "monoFont": {
+                    "$ref": "#/definitions/fontStack"
+                },
+                "letterSpacing": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "spacing": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "unit": {
+                    "type": "number"
+                },
+                "borderRadius": {
+                    "type": "number"
+                },
+                "scale": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "radius": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "layout": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "web": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "maxWidth": {
+                            "type": "string"
+                        },
+                        "containerPadding": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "document": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "pageSize": {
+                            "type": "string"
+                        },
+                        "margins": {
+                            "type": "object",
+                            "additionalProperties": true,
+                            "properties": {
+                                "top": {
+                                    "type": "string"
+                                },
+                                "right": {
+                                    "type": "string"
+                                },
+                                "bottom": {
+                                    "type": "string"
+                                },
+                                "left": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "email": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                        "maxWidth": {
+                            "type": "string"
+                        },
+                        "contentPadding": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "letterhead": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "addressLines": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "footerText": {
+                    "type": "string"
+                },
+                "showLogoOn": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "document",
+                            "email"
+                        ]
+                    }
+                }
+            }
+        },
+        "voice": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "tone": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "avoid": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "languages": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "principles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "examples": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "properties": {
+                            "context": {
+                                "type": "string"
+                            },
+                            "do": {
+                                "type": "string"
+                            },
+                            "dont": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "brandArchitecture": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "master": {
+                    "type": "string"
+                },
+                "personal": {
+                    "type": "string"
+                },
+                "signature": {
+                    "type": "string"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "iconography": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "set": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "strokeWidth": {
+                    "type": "number"
+                },
+                "sizes": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "motion": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "durations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "easing": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "imagery": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+                "style": {
+                    "type": "string"
+                },
+                "do": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dont": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "promptTemplate": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

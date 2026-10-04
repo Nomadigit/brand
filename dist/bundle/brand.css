@@ -1,0 +1,23 @@
+/* Generated from tokens/brand.json by @nomadigit/brand. Do not edit; edit the tokens and run `npm run build`. */
+@import url("./fonts/fonts.css");
+@import url("./tokens.css");
+
+html { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-web-family);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-display-family); line-height: var(--line-height-heading); letter-spacing: var(--letter-spacing-heading); text-wrap: balance; }
+h1 { font-size: var(--font-size-h1); font-weight: var(--font-weight-display); letter-spacing: var(--letter-spacing-display); }
+h2 { font-size: var(--font-size-h2); font-weight: var(--font-weight-display); }
+h3 { font-size: var(--font-size-h3); font-weight: var(--font-weight-bold); }
+a { color: var(--color-link); text-underline-offset: 3px; }
+code, kbd, pre, samp { font-family: var(--font-mono-family); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; } }

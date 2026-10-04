@@ -1,0 +1,22 @@
+/* Generated from tokens/brand.json by @nomadigit/brand. Do not edit; edit the tokens and run `npm run build`. */
+@page {
+  size: A4;
+  margin: 15mm 15mm 15mm 15mm;
+}
+
+body {
+  font-family: Onest, Arial, sans-serif;
+  color: #101D22;
+  background: #F7FBFD;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1, h2, h3 {
+  color: #04556D;
+  line-height: 1.2;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+h3 { font-size: 20px; }

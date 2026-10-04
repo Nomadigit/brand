@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomadigit Brand</title>
+<meta name="description" content="Nomadigit brand tokens: the single source for every site, bot, app, deck, document and image.">
+<meta property="og:image" content="assets/social/og-default.png">
+<meta name="theme-color" content="#F7FBFD" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1113" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="dist/brand.css">
+<style>
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: var(--space-6); }
+  @media (max-width: 600px) { .wrap { padding-inline: var(--space-4); } }
+  header.top { position: sticky; top: 0; z-index: 2; background: color-mix(in srgb, var(--color-background) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--color-border); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-block: var(--space-3); }
+  header.top nav { display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: var(--font-size-sm); }
+  header.top nav a { color: var(--color-muted); text-decoration: none; }
+  header.top nav a:hover { color: var(--color-text); }
+  .logo { height: 26px; display: block; }
+  .logo-dark { display: none; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
+  :root[data-theme="dark"] .logo-light { display: none; } :root[data-theme="dark"] .logo-dark { display: block; }
+  .theme-btn { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-mono-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; background: var(--color-surface-muted); color: var(--color-text); border: 0; border-radius: var(--radius-pill); padding: 8px 12px; cursor: pointer; }
+  main section { padding-block: var(--space-12); border-bottom: 1px solid var(--color-border); display: grid; gap: var(--space-6); }
+  .eyebrow { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-mono-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; color: var(--color-muted); }
+  .hero h1 { font-size: clamp(36px, 6vw, var(--font-size-display)); max-width: 18ch; margin: 0; }
+  .hero p { margin: 0; max-width: 60ch; color: var(--color-muted); font-size: var(--font-size-lg); }
+  h2 { margin: 0; }
+  .muted { color: var(--color-muted); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-4); }
+  .tile { border-radius: var(--radius-lg); padding: var(--space-6); display: grid; place-items: center; min-height: 160px; border: 1px solid var(--color-border); }
+  .tile img { max-width: 100%; max-height: 64px; }
+  .tile.l { background: #F7FBFD; } .tile.d { background: #0A1113; border-color: #2A3539; } .tile.p { background: #04556D; border-color: #04556D; }
+  .tile.s { background: var(--color-surface); }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: var(--font-size-sm); }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+  thead th { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-mono-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; color: var(--color-muted); }
+  th[scope="row"] { font-weight: 400; white-space: nowrap; }
+  .sw { display: inline-block; width: 22px; height: 22px; border-radius: 6px; vertical-align: middle; margin-right: 8px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text) 15%, transparent); }
+  td code, th code { font-size: 12.5px; }
+  .scale { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); border-radius: var(--radius-md); overflow: hidden; }
+  .step { height: 64px; display: flex; align-items: flex-end; padding: 6px; font: 11px/1 var(--font-mono-family); }
+  .size-row { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--space-4); align-items: baseline; padding-block: var(--space-2); border-bottom: 1px solid var(--color-border); overflow: hidden; }
+  .size-row span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .size-row code { color: var(--color-muted); font-size: 12px; }
+  .demo { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+  .btn { font: var(--font-weight-bold) var(--font-size-sm)/1 var(--font-web-family); padding: 12px 16px; border-radius: var(--radius-md); border: 0; cursor: pointer; }
+  .btn.primary { background: var(--color-primary); color: var(--color-on-primary); }
+  .btn.secondary { background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary); }
+  .badge { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-web-family); padding: 6px 10px; border-radius: var(--radius-pill); }
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); display: grid; gap: var(--space-3); max-width: 420px; }
+  .card .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-accent); }
+  input.field { font: inherit; color: inherit; background: var(--color-surface-muted); border: 1px solid transparent; border-radius: var(--radius-md); padding: 12px; min-width: 0; width: 100%; box-sizing: border-box; }
+  input.field:focus-visible { outline: none; border-color: var(--color-focus); }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--space-6); }
+  ul.rules { margin: 0; padding-left: 20px; display: grid; gap: var(--space-2); }
+  .dl a { display: grid; gap: 2px; padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); text-decoration: none; background: var(--color-surface); }
+  .dl a span { color: var(--color-muted); font-size: var(--font-size-sm); }
+  .dl code { color: var(--color-text); }
+  pre { background: var(--color-surface-muted); border-radius: var(--radius-md); padding: var(--space-4); overflow-x: auto; font-size: 13px; margin: 0; }
+  footer.foot { padding-block: var(--space-8); color: var(--color-muted); font-size: var(--font-size-sm); }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a href="./" aria-label="Nomadigit"><img class="logo logo-light" src="assets/logo/lockup-horizontal.svg" alt="Nomadigit"><img class="logo logo-dark" src="assets/logo/lockup-horizontal-dark.svg" alt="Nomadigit"></a>
+  <nav aria-label="Sections"><a href="#logo">Logo</a><a href="#color">Color</a><a href="#type">Type</a><a href="#ui">UI</a><a href="#voice">Voice</a><a href="#use">Use</a></nav>
+  <button class="theme-btn" id="theme" type="button">Theme: auto</button>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Brand guidelines · v1.0.0</span>
+    <h1>Software made on the move</h1>
+    <p>Nomadigit brand tokens: the single source for every site, bot, app, deck, document and image. Built from one file, <code>tokens/brand.json</code>. Agents start at <a href="AGENTS.md">AGENTS.md</a> or <a href="llms.txt">llms.txt</a>.</p>
+  </section>
+
+  <section id="logo">
+    <span class="eyebrow">Logo</span>
+    <h2>Waypoint</h2>
+    <p class="muted" style="margin:0;max-width:62ch">A lowercase n drawn as one route that ends in a red waypoint dot. It stands for moving and arriving.</p>
+    <div class="grid">
+      <div class="tile l"><img src="assets/logo/lockup-horizontal.svg" alt="Lockup on light"></div>
+      <div class="tile d"><img src="assets/logo/lockup-horizontal-dark.svg" alt="Lockup on dark"></div>
+      <div class="tile p"><img src="assets/logo/mark-inverse.svg" alt="Inverse mark on petrol" width="72" height="72"></div>
+      <div class="tile s"><img src="assets/logo/app-icon.svg" alt="App icon" style="max-height:96px;border-radius:22%"></div>
+    </div>
+    <div class="cols">
+      <div><h3>Do</h3><ul class="rules"><li>Use the mark alone at 16-48px (favicons, avatars, app icons); use the lockup when there is room for the name.</li><li>Keep clear space of at least half the mark's height on every side.</li><li>On photos or busy backgrounds place the inverse mark on a solid primary chip.</li><li>Use the mono variant when only one color is available (embossing, single-color print, system tray).</li></ul></div>
+      <div><h3>Don't</h3><ul class="rules"><li>Don't recolor the route or the waypoint outside the palette, and don't swap their colors.</li><li>Don't stretch, rotate, outline, add shadows, gradients or glow.</li><li>Don't retype the wordmark in another font; always use the SVG.</li><li>Don't place the light mark on mid-tone backgrounds where contrast drops below 3:1.</li><li>Don't use the accent red for error states; errors use the darker semantic error color plus an icon and text.</li></ul></div>
+    </div>
+  </section>
+
+  <section id="color">
+    <span class="eyebrow">Color</span>
+    <h2>Petrol, one red dot, quiet neutrals</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Token</th><th>Light</th><th>Dark</th><th>Use</th></tr></thead>
+      <tbody><tr><th scope="row"><code>--color-primary</code></th><td><span class="sw" style="background:#04556D"></span><code>#04556D</code></td><td><span class="sw" style="background:#7ACAE9"></span><code>#7ACAE9</code></td><td class="muted">Actions, links, the mark</td></tr><tr><th scope="row"><code>--color-text</code></th><td><span class="sw" style="background:#101D22"></span><code>#101D22</code></td><td><span class="sw" style="background:#E6ECEF"></span><code>#E6ECEF</code></td><td class="muted">Body text, headings</td></tr><tr><th scope="row"><code>--color-background</code></th><td><span class="sw" style="background:#F7FBFD"></span><code>#F7FBFD</code></td><td><span class="sw" style="background:#0A1113"></span><code>#0A1113</code></td><td class="muted">Page background</td></tr><tr><th scope="row"><code>--color-accent</code></th><td><span class="sw" style="background:#FC5950"></span><code>#FC5950</code></td><td><span class="sw" style="background:#FE8B7F"></span><code>#FE8B7F</code></td><td class="muted">One focal point: the waypoint dot</td></tr><tr><th scope="row"><code>--color-border</code></th><td><span class="sw" style="background:#D6E2E7"></span><code>#D6E2E7</code></td><td><span class="sw" style="background:#2A3539"></span><code>#2A3539</code></td><td class="muted">Dividers, outlines</td></tr><tr><th scope="row"><code>--color-surface</code></th><td><span class="sw" style="background:#FFFFFF"></span><code>#FFFFFF</code></td><td><span class="sw" style="background:#131B1E"></span><code>#131B1E</code></td><td class="muted">Cards, sheets, inputs</td></tr><tr><th scope="row"><code>--color-surface-muted</code></th><td><span class="sw" style="background:#EDF3F6"></span><code>#EDF3F6</code></td><td><span class="sw" style="background:#1A2428"></span><code>#1A2428</code></td><td class="muted">Secondary surfaces, chips, code</td></tr><tr><th scope="row"><code>--color-muted</code></th><td><span class="sw" style="background:#526066"></span><code>#526066</code></td><td><span class="sw" style="background:#9FAAAE"></span><code>#9FAAAE</code></td><td class="muted">Secondary text, hints</td></tr><tr><th scope="row"><code>--color-on-primary</code></th><td><span class="sw" style="background:#FFFFFF"></span><code>#FFFFFF</code></td><td><span class="sw" style="background:#0A1113"></span><code>#0A1113</code></td><td class="muted">Text on primary</td></tr><tr><th scope="row"><code>--color-on-accent</code></th><td><span class="sw" style="background:#101D22"></span><code>#101D22</code></td><td><span class="sw" style="background:#0A1113"></span><code>#0A1113</code></td><td class="muted">Text on accent</td></tr><tr><th scope="row"><code>--color-link</code></th><td><span class="sw" style="background:#04556D"></span><code>#04556D</code></td><td><span class="sw" style="background:#7ACAE9"></span><code>#7ACAE9</code></td><td class="muted">Links</td></tr><tr><th scope="row"><code>--color-focus</code></th><td><span class="sw" style="background:#2F829F"></span><code>#2F829F</code></td><td><span class="sw" style="background:#96DDF9"></span><code>#96DDF9</code></td><td class="muted">Focus rings</td></tr><tr><th scope="row"><code>--color-success</code></th><td><span class="sw" style="background:#1D7D3E"></span><code>#1D7D3E</code></td><td><span class="sw" style="background:#65C67D"></span><code>#65C67D</code></td><td class="muted">Status</td></tr><tr><th scope="row"><code>--color-warning</code></th><td><span class="sw" style="background:#B87609"></span><code>#B87609</code></td><td><span class="sw" style="background:#F2AF48"></span><code>#F2AF48</code></td><td class="muted">Status</td></tr><tr><th scope="row"><code>--color-error</code></th><td><span class="sw" style="background:#9D203A"></span><code>#9D203A</code></td><td><span class="sw" style="background:#E8809A"></span><code>#E8809A</code></td><td class="muted">Errors (never the accent)</td></tr><tr><th scope="row"><code>--color-info</code></th><td><span class="sw" style="background:#0470A5"></span><code>#0470A5</code></td><td><span class="sw" style="background:#5FB8F2"></span><code>#5FB8F2</code></td><td class="muted">Status</td></tr></tbody>
+    </table></div>
+    <div class="scale" aria-label="Primary scale 50–900"><div class="step" style="background:#EAF8FD;color:#101D22"><span>50</span></div><div class="step" style="background:#C9EFFF;color:#101D22"><span>100</span></div><div class="step" style="background:#96DDF9;color:#101D22"><span>200</span></div><div class="step" style="background:#71C1E0;color:#101D22"><span>300</span></div><div class="step" style="background:#51A1BF;color:#101D22"><span>400</span></div><div class="step" style="background:#2F829F;color:#fff"><span>500</span></div><div class="step" style="background:#0B6A87;color:#fff"><span>600</span></div><div class="step" style="background:#0A5268;color:#fff"><span>700</span></div><div class="step" style="background:#013C4D;color:#fff"><span>800</span></div><div class="step" style="background:#012632;color:#fff"><span>900</span></div></div>
+    <p class="muted" style="margin:0">Every text pair passes WCAG AA (4.5:1) and every mark passes 3:1, in both themes. <code>npm test</code> enforces it.</p>
+  </section>
+
+  <section id="type">
+    <span class="eyebrow">Typography</span>
+    <h2>One family: Onest</h2>
+    <p class="muted" style="margin:0;max-width:62ch">Hierarchy comes from weight and size. Code, dates and IDs use <code>JetBrains Mono</code>. Both fonts are SIL OFL 1.1 and support Latin and Cyrillic.</p>
+    <div><div class="size-row"><code>display · 48px</code><span style="font-size:48px;font-weight:var(--font-weight-display);line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>h1 · 36px</code><span style="font-size:36px;font-weight:var(--font-weight-display);line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>h2 · 28px</code><span style="font-size:28px;font-weight:var(--font-weight-display);line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>h3 · 20px</code><span style="font-size:20px;font-weight:var(--font-weight-bold);line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>lg · 18px</code><span style="font-size:18px;font-weight:400;line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>body · 16px</code><span style="font-size:16px;font-weight:400;line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>sm · 14px</code><span style="font-size:14px;font-weight:400;line-height:1.15">Кочевник пишет код · Nomad writes code</span></div><div class="size-row"><code>xs · 12px</code><span style="font-size:12px;font-weight:400;line-height:1.15">Кочевник пишет код · Nomad writes code</span></div></div>
+    <pre><code>0123456789  04.10.2026  15:30  /remind через 30 минут
+const brand = require("@nomadigit/brand");</code></pre>
+  </section>
+
+  <section id="ui">
+    <span class="eyebrow">Interface</span>
+    <h2>Patterns</h2>
+    <div class="demo">
+      <button class="btn primary" type="button">Создать напоминание</button>
+      <button class="btn secondary" type="button">Отложить</button>
+      <span class="badge" style="color:var(--color-success);background:color-mix(in srgb,var(--color-success) 12%,transparent)">Готово</span>
+      <span class="badge" style="color:var(--color-warning);background:color-mix(in srgb,var(--color-warning) 14%,transparent)">Скоро</span>
+      <span class="badge" style="color:var(--color-error);background:color-mix(in srgb,var(--color-error) 12%,transparent)">Ошибка</span>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px"><span class="dot" aria-hidden="true"></span><span class="eyebrow">Сегодня · 15:00</span></div>
+      <strong style="font-size:var(--font-size-lg)">Созвон с командой</strong>
+      <span class="muted">Напомню за 15 минут.</span>
+      <label class="muted" for="when" style="font-size:var(--font-size-sm)">Когда напомнить</label>
+      <input class="field" id="when" value="завтра в 10">
+    </div>
+  </section>
+
+  <section id="voice">
+    <span class="eyebrow">Voice</span>
+    <h2>Clear, friendly, concise, practical</h2>
+    <ul class="rules"><li>Say what happens, then stop. One idea per sentence.</li><li>Talk to the reader as &quot;ты&quot; in Russian bots and products, &quot;вы&quot; in formal documents and CV.</li><li>Name things the way users call them, not the way the code calls them.</li><li>Errors explain what went wrong and what to do next, without apologies.</li></ul>
+    <div class="table-wrap"><table><thead><tr><th>Context</th><th>Do</th><th>Don't</th></tr></thead><tbody><tr><th scope="row">Bot confirms a reminder</th><td>Готово. Напомню завтра в 10:00.</td><td class="muted"><s>Ваше напоминание было успешно создано! 🎉</s></td></tr><tr><th scope="row">Input error</th><td>Не понял время. Попробуй «завтра в 10» или «через 30 минут».</td><td class="muted"><s>Произошла ошибка. Извините за неудобства.</s></td></tr><tr><th scope="row">Project description</th><td>Telegram bot that reminds you on time, in your time zone.</td><td class="muted"><s>A revolutionary AI-powered productivity solution.</s></td></tr></tbody></table></div>
+  </section>
+
+  <section id="use">
+    <span class="eyebrow">Use it</span>
+    <h2>Files</h2>
+    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.0/dist/brand.css"&gt;
+npm i github:Nomadigit/brand#v1.0.0</code></pre>
+    <div class="grid dl"><a href="dist/brand.css"><code>dist/brand.css</code><span>Fonts + tokens + base styles, one link</span></a><a href="dist/tokens.css"><code>dist/tokens.css</code><span>CSS variables, light + dark</span></a><a href="dist/tailwind.preset.cjs"><code>dist/tailwind.preset.cjs</code><span>Tailwind preset (CSS-variable colors)</span></a><a href="dist/tokens.flat.json"><code>dist/tokens.flat.json</code><span>Flat tokens for Go, Kotlin, scripts</span></a><a href="dist/tokens.json"><code>dist/tokens.json</code><span>W3C design tokens (Figma Tokens, Style Dictionary)</span></a><a href="dist/telegram-theme.json"><code>dist/telegram-theme.json</code><span>Telegram Mini App colors</span></a><a href="dist/marp-theme.css"><code>dist/marp-theme.css</code><span>Slide theme (Marp)</span></a><a href="dist/pptx-theme.json"><code>dist/pptx-theme.json</code><span>PowerPoint theme slots</span></a><a href="dist/docx-styles.json"><code>dist/docx-styles.json</code><span>Word document styles</span></a><a href="assets/logo/lockup-horizontal.svg"><code>assets/logo/lockup-horizontal.svg</code><span>Logo (light)</span></a><a href="assets/logo/lockup-horizontal-dark.svg"><code>assets/logo/lockup-horizontal-dark.svg</code><span>Logo (dark)</span></a><a href="assets/logo/app-icon.svg"><code>assets/logo/app-icon.svg</code><span>App icon</span></a><a href="assets/social/avatar-telegram.png"><code>assets/social/avatar-telegram.png</code><span>Telegram avatar</span></a><a href="assets/social/og-default.png"><code>assets/social/og-default.png</code><span>Default social card</span></a><a href="assets/fonts/fonts.css"><code>assets/fonts/fonts.css</code><span>Self-hosted Onest + JetBrains Mono</span></a></div>
+  </section>
+</main>
+<footer class="foot wrap">© Nomadigit · Code MIT · Logo all rights reserved · Fonts SIL OFL 1.1 · <a href="https://github.com/Nomadigit/brand">GitHub</a></footer>
+<script>
+  (function () {
+    var btn = document.getElementById("theme"), root = document.documentElement, order = ["auto", "light", "dark"];
+    var cur = "auto"; try { cur = localStorage.getItem("ndg-theme") || "auto"; } catch (e) {}
+    function apply() { if (cur === "auto") root.removeAttribute("data-theme"); else root.setAttribute("data-theme", cur); btn.textContent = "Theme: " + cur; }
+    btn.addEventListener("click", function () { cur = order[(order.indexOf(cur) + 1) % 3]; try { localStorage.setItem("ndg-theme", cur); } catch (e) {} apply(); });
+    apply();
+  })();
+</script>
+</body>
+</html>

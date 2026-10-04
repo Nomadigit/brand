@@ -1,0 +1,22 @@
+{
+  "name": "Nomadigit",
+  "colors": {
+    "dk1": "101D22",
+    "lt1": "FFFFFF",
+    "dk2": "04556D",
+    "lt2": "F7FBFD",
+    "accent1": "04556D",
+    "accent2": "FC5950",
+    "accent3": "51A1BF",
+    "accent4": "96DDF9",
+    "accent5": "1D7D3E",
+    "accent6": "B87609",
+    "hlink": "04556D",
+    "folHlink": "0A5268"
+  },
+  "fonts": {
+    "major": "Onest",
+    "minor": "Onest",
+    "mono": "JetBrains Mono"
+  }
+}

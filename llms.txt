@@ -1,0 +1,42 @@
+# Nomadigit brand
+
+> Brand kit for Nomadigit projects (sites, Telegram bots and Mini Apps, apps, slides, CV, images). Petrol #04556D primary, signal red #FC5950 accent (one focal point only), one typeface (Onest) plus JetBrains Mono for code, light and dark themes. Never hardcode values; read them from the generated files below.
+
+## Start here
+
+- [AGENTS.md](https://raw.githubusercontent.com/Nomadigit/brand/main/AGENTS.md): rules, brand architecture, what to read for each task, done checklist
+- [tokens/brand.json](https://raw.githubusercontent.com/Nomadigit/brand/main/tokens/brand.json): the source of truth for every value
+
+## Guidelines
+
+- [Logo](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/logo.md)
+- [Color](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/color.md)
+- [Typography](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/typography.md)
+- [Layout](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/layout.md)
+- [Icons](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/icons.md)
+- [Motion](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/motion.md)
+- [Imagery](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/imagery.md)
+- [Voice](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/voice.md)
+
+## Recipes
+
+- [Web](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/recipes/web.md)
+- [Telegram bot and Mini App](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/recipes/telegram-bot.md)
+- [Slides](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/recipes/slides.md)
+- [CV and documents](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/recipes/cv-docs.md)
+- [Social images](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/recipes/social-images.md)
+- [Android, Kotlin, Go](https://raw.githubusercontent.com/Nomadigit/brand/main/guidelines/recipes/native.md)
+
+## Generated files
+
+- [dist/tokens.css](https://raw.githubusercontent.com/Nomadigit/brand/main/dist/tokens.css): CSS variables, light + dark
+- [dist/brand.css](https://cdn.jsdelivr.net/gh/Nomadigit/brand@main/dist/brand.css): fonts + tokens + base styles (CDN)
+- [dist/tokens.flat.json](https://raw.githubusercontent.com/Nomadigit/brand/main/dist/tokens.flat.json): flat key/value tokens
+- [dist/tokens.json](https://raw.githubusercontent.com/Nomadigit/brand/main/dist/tokens.json): W3C design tokens
+- [dist/tailwind.preset.cjs](https://raw.githubusercontent.com/Nomadigit/brand/main/dist/tailwind.preset.cjs): Tailwind preset
+- [dist/marp-theme.css](https://raw.githubusercontent.com/Nomadigit/brand/main/dist/marp-theme.css): slide theme
+- [assets/logo/lockup-horizontal.svg](https://raw.githubusercontent.com/Nomadigit/brand/main/assets/logo/lockup-horizontal.svg): default logo
+
+## Optional
+
+- [docs/api.md](https://raw.githubusercontent.com/Nomadigit/brand/main/docs/api.md): TypeScript API for the transformers

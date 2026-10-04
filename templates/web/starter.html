@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project · Nomadigit</title>
+  <!-- Pin a tag (@v1.0.0) in real projects; @main follows the latest brand. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@main/dist/brand.css">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@main/assets/favicon/favicon.svg" type="image/svg+xml">
+  <style>
+    .wrap { max-width: 1120px; margin: 0 auto; padding-inline: var(--space-6); }
+    header { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-4); border-bottom: 1px solid var(--color-border); }
+    .logo { display: block; height: 28px; }
+    .logo-dark { display: none; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
+    :root[data-theme="dark"] .logo-light { display: none; }
+    :root[data-theme="dark"] .logo-dark { display: block; }
+    .btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: 10px 16px; border: 0; border-radius: var(--radius-md); background: var(--color-primary); color: var(--color-on-primary); font: var(--font-weight-bold) var(--font-size-sm)/1 var(--font-web-family); cursor: pointer; transition: background var(--duration-fast) var(--easing-standard); }
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-6); }
+    .muted { color: var(--color-muted); }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a href="/" aria-label="Nomadigit">
+      <img class="logo logo-light" src="https://cdn.jsdelivr.net/gh/Nomadigit/brand@main/assets/logo/lockup-horizontal.svg" alt="Nomadigit">
+      <img class="logo logo-dark" src="https://cdn.jsdelivr.net/gh/Nomadigit/brand@main/assets/logo/lockup-horizontal-dark.svg" alt="Nomadigit">
+    </a>
+    <button class="btn" type="button">Связаться</button>
+  </header>
+  <main class="wrap" style="padding-block: var(--space-12); display: grid; gap: var(--space-6);">
+    <h1>Название проекта</h1>
+    <p class="muted">Одно предложение о том, что делает проект и для кого.</p>
+    <div class="card"><code>npm i github:Nomadigit/brand</code></div>
+  </main>
+</body>
+</html>

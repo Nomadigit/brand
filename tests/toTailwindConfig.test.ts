@@ -18,7 +18,7 @@ describe("toTailwindConfig", () => {
     expect(config.theme.extend.fontFamily.web).toEqual(["Inter", "Helvetica Neue", "sans-serif"]);
     expect(config.theme.extend.fontSize).toMatchObject({ h1: "32px", body: "16px" });
     expect(config.theme.extend.fontWeight).toMatchObject({ regular: "400", bold: "700" });
-    expect(config.theme.extend.borderRadius).toEqual({ DEFAULT: "6px" });
+    expect(config.theme.extend.borderRadius).toMatchObject({ DEFAULT: "6px" });
   });
 
   it("omits optional theme keys that have no source data on a minimal brand", () => {

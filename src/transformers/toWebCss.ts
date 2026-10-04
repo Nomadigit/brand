@@ -1,59 +1,52 @@
-import type { BrandFile, FontStack } from "../types";
+import type { BrandFile } from "../types";
+import { colorScale, fontFamilyValue, hasDarkMode, kebab, resolveColors } from "./shared";
 
 export type CssVariables = Record<string, string>;
 
-function fontFamilyValue(font: FontStack): string {
-  const stack = [font.family, ...(font.fallback ?? [])];
-  return stack.map((name) => (name.includes(" ") ? `"${name}"` : name)).join(", ");
-}
-
 export function brandToCssVariables(brand: BrandFile): CssVariables {
-  const vars: CssVariables = {
-    "--color-primary": brand.colors.primary,
-    "--color-text": brand.colors.text,
-    "--color-background": brand.colors.background,
-    "--font-web-family": fontFamilyValue(brand.typography.webFont),
-    "--font-weight-regular": String(brand.typography.weights.regular ?? 400),
-    "--font-weight-medium": String(brand.typography.weights.medium ?? 500),
-    "--font-weight-bold": String(brand.typography.weights.bold ?? 700),
-  };
+  const t = brand.typography;
+  const vars: CssVariables = {};
 
-  if (brand.colors.secondary) vars["--color-secondary"] = brand.colors.secondary;
-  if (brand.colors.accent) vars["--color-accent"] = brand.colors.accent;
-  if (brand.colors.border) vars["--color-border"] = brand.colors.border;
-  if (brand.colors.semantic) {
-    for (const [key, value] of Object.entries(brand.colors.semantic)) {
-      if (typeof value === "string") vars[`--color-${key}`] = value;
-    }
+  for (const [key, value] of Object.entries(resolveColors(brand, "light"))) {
+    vars[`--color-${key}`] = value;
+  }
+  for (const [name, steps] of Object.entries(colorScale(brand))) {
+    for (const [step, value] of Object.entries(steps)) vars[`--color-${name}-${step}`] = value;
   }
 
-  for (const [key, value] of Object.entries(brand.typography.sizes)) {
-    vars[`--font-size-${key}`] = value;
+  vars["--font-web-family"] = fontFamilyValue(t.webFont);
+  vars["--font-display-family"] = fontFamilyValue(t.displayFont ?? t.webFont);
+  if (t.monoFont) vars["--font-mono-family"] = fontFamilyValue(t.monoFont);
+  vars["--font-weight-regular"] = String(t.weights.regular ?? 400);
+  vars["--font-weight-medium"] = String(t.weights.medium ?? 500);
+  vars["--font-weight-bold"] = String(t.weights.bold ?? 700);
+  for (const [key, value] of Object.entries(t.weights)) {
+    if (!["regular", "medium", "bold"].includes(key)) vars[`--font-weight-${kebab(key)}`] = String(value);
   }
+  for (const [key, value] of Object.entries(t.sizes)) vars[`--font-size-${key}`] = value;
+  for (const [key, value] of Object.entries(t.lineHeight ?? {})) vars[`--line-height-${key}`] = String(value);
+  for (const [key, value] of Object.entries(t.letterSpacing ?? {})) vars[`--letter-spacing-${key}`] = String(value);
 
-  if (brand.typography.lineHeight) {
-    for (const [key, value] of Object.entries(brand.typography.lineHeight)) {
-      vars[`--line-height-${key}`] = String(value);
-    }
-  }
+  const s = brand.spacing;
+  if (s.unit !== undefined) vars["--spacing-unit"] = `${s.unit}px`;
+  if (s.borderRadius !== undefined) vars["--radius"] = `${s.borderRadius}px`;
+  for (const [key, value] of Object.entries(s.scale ?? {})) vars[`--space-${key}`] = String(value);
+  for (const [key, value] of Object.entries(s.radius ?? {})) vars[`--radius-${key}`] = String(value);
 
-  if (brand.spacing.unit !== undefined) vars["--spacing-unit"] = `${brand.spacing.unit}px`;
-  if (brand.spacing.borderRadius !== undefined) vars["--radius"] = `${brand.spacing.borderRadius}px`;
+  for (const [key, value] of Object.entries(brand.motion?.durations ?? {})) vars[`--duration-${key}`] = String(value);
+  for (const [key, value] of Object.entries(brand.motion?.easing ?? {})) vars[`--easing-${key}`] = String(value);
 
   return vars;
 }
 
-function darkModeCssVariables(brand: BrandFile): CssVariables {
-  const darkMode = brand.colors.darkMode;
-  if (!darkMode) return {};
-
+/** Only the color variables whose dark value differs from light. */
+export function darkModeCssVariables(brand: BrandFile): CssVariables {
+  if (!hasDarkMode(brand)) return {};
+  const light = resolveColors(brand, "light");
   const vars: CssVariables = {};
-  if (darkMode.primary) vars["--color-primary"] = darkMode.primary;
-  if (darkMode.secondary) vars["--color-secondary"] = darkMode.secondary;
-  if (darkMode.accent) vars["--color-accent"] = darkMode.accent;
-  if (darkMode.text) vars["--color-text"] = darkMode.text;
-  if (darkMode.background) vars["--color-background"] = darkMode.background;
-  if (darkMode.border) vars["--color-border"] = darkMode.border;
+  for (const [key, value] of Object.entries(resolveColors(brand, "dark"))) {
+    if (light[key] !== value) vars[`--color-${key}`] = value;
+  }
   return vars;
 }
 
@@ -62,20 +55,25 @@ export function cssVariablesToRootBlock(vars: CssVariables, selector = ":root"):
   return `${selector} {\n${lines.join("\n")}\n}\n`;
 }
 
-export function toWebCss(brand: BrandFile): string {
-  const root = cssVariablesToRootBlock(brandToCssVariables(brand));
-  const darkVars = darkModeCssVariables(brand);
-
-  if (Object.keys(darkVars).length === 0) {
-    return root;
-  }
-
-  const darkBlock = cssVariablesToRootBlock(darkVars);
-  const indented = darkBlock
+function indent(block: string): string {
+  return block
     .trimEnd()
     .split("\n")
     .map((line) => `  ${line}`)
     .join("\n");
+}
 
-  return `${root}\n@media (prefers-color-scheme: dark) {\n${indented}\n}\n`;
+/**
+ * Light values on :root. Dark values follow the OS setting unless the page pins a theme
+ * with <html data-theme="light|dark">, which wins in both directions.
+ */
+export function toWebCss(brand: BrandFile): string {
+  const root = cssVariablesToRootBlock(brandToCssVariables(brand));
+  const darkVars = darkModeCssVariables(brand);
+  if (Object.keys(darkVars).length === 0) return root;
+
+  const withScheme = { ...darkVars, "color-scheme": "dark" };
+  const mediaBlock = cssVariablesToRootBlock(withScheme, ':root:not([data-theme="light"])');
+  const forced = cssVariablesToRootBlock(withScheme, ':root[data-theme="dark"]');
+  return `${root}\n@media (prefers-color-scheme: dark) {\n${indent(mediaBlock)}\n}\n\n${forced}`;
 }

@@ -1,0 +1,32 @@
+{
+  "colors": {
+    "primary": "04556D",
+    "text": "101D22",
+    "background": "F7FBFD",
+    "accent": "FC5950",
+    "border": "D6E2E7"
+  },
+  "heading1": {
+    "font": "Onest",
+    "size": 54,
+    "bold": true,
+    "color": "04556D"
+  },
+  "heading2": {
+    "font": "Onest",
+    "size": 42,
+    "bold": true,
+    "color": "04556D"
+  },
+  "heading3": {
+    "font": "Onest",
+    "size": 30,
+    "bold": true,
+    "color": "101D22"
+  },
+  "body": {
+    "font": "Onest",
+    "size": 24,
+    "color": "101D22"
+  }
+}
