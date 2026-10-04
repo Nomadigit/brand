@@ -31,7 +31,11 @@ guides are in [`guidelines/`](guidelines/) and the values are in [`tokens/brand.
 - Master brand: **Nomadigit**. The product name comes first: "Reminder · Nomadigit".
 - Personal documents (CV, talks, cover letters) lead with **Danil Shubin** and are signed
   **"Danil Shubin · Nomadigit"**.
-- No sub-brands with their own logos or palettes. A product differs from another only by its name.
+- No sub-brands: a product never gets its own palette, typeface or wordmark.
+- A product **may** get a **product icon**: the master mark plus exactly one cue for what the product does, drawn in the
+  accent. Product icons are listed in `tokens/brand.json` → `products`, drawn in `scripts/lib/products.ts` and generated
+  into `assets/products/<id>/`. Never draw one by hand in a product repo. To add a product, add a glyph there and an entry
+  in `products`, then rebuild. Current products: **Reminder** (`assets/products/reminder/`, ringing arcs).
 
 ## What to read for the task at hand
 
@@ -44,6 +48,7 @@ guides are in [`guidelines/`](guidelines/) and the values are in [`tokens/brand.
 | Social card / OG / image | [recipes/social-images.md](guidelines/recipes/social-images.md), [imagery](guidelines/imagery.md) | `npm run og -- "Title"`, `imagery.promptTemplate` |
 | Android / Kotlin / Go / other | [recipes/native.md](guidelines/recipes/native.md) | `dist/tokens.flat.json`, `dist/tokens.json` (W3C) |
 | Logo placement | [logo.md](guidelines/logo.md) | `assets/logo/*`, `assets/favicon/*` |
+| Product icon (bot avatar, app icon) | [logo.md → Product icons](guidelines/logo.md#product-icons) | `assets/products/<id>/*` |
 | Colors, type, layout, icons, motion | [color](guidelines/color.md), [typography](guidelines/typography.md), [layout](guidelines/layout.md), [icons](guidelines/icons.md), [motion](guidelines/motion.md) | |
 
 ## Quick reference (read-only summary; the tokens are the source)

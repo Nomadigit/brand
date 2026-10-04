@@ -175,6 +175,23 @@ export interface BrandFile {
         promptTemplate?: string;
         [k: string]: unknown;
     };
+    /**
+     * Products that get their own icon: the master mark plus one cue (see scripts/lib/products.ts). Never their own palette or typeface.
+     */
+    products?: {
+        id: string;
+        name: string;
+        /**
+         * Key of the product glyph in scripts/lib/products.ts
+         */
+        glyph: string;
+        /**
+         * How the product is titled, e.g. in Telegram: "Reminder · Nomadigit"
+         */
+        displayName?: string;
+        description?: string;
+        [k: string]: unknown;
+    }[];
     [k: string]: unknown;
 }
 export interface LogoAsset {

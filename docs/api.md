@@ -7,7 +7,7 @@ without any of the three channels needing to know about the other two.
 ## Install
 
 ```bash
-npm i git+https://github.com/Nomadigit/brand.git#v1.0.1
+npm i git+https://github.com/Nomadigit/brand.git#v1.0.2
 ```
 
 ## Usage

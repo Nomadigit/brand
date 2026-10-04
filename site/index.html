@@ -73,7 +73,7 @@
 
 <main class="wrap">
   <section class="hero">
-    <span class="eyebrow">Brand guidelines · v1.0.1</span>
+    <span class="eyebrow">Brand guidelines · v1.0.2</span>
     <h1>Software made on the move</h1>
     <p>Nomadigit brand tokens: the single source for every site, bot, app, deck, document and image. Built from one file, <code>tokens/brand.json</code>. Agents start at <a href="AGENTS.md">AGENTS.md</a> or <a href="llms.txt">llms.txt</a>.</p>
   </section>
@@ -88,6 +88,9 @@
       <div class="tile p"><img src="assets/logo/mark-inverse.svg" alt="Inverse mark on petrol" width="72" height="72"></div>
       <div class="tile s"><img src="assets/logo/app-icon.svg" alt="App icon" style="max-height:96px;border-radius:22%"></div>
     </div>
+    <h3 style="margin:0">Product icons</h3>
+    <p class="muted" style="margin:0;max-width:62ch">The master mark plus one cue for what the product does. The name next to it stays plain text.</p>
+    <div class="grid"><div class="tile s" style="gap:12px"><img src="assets/products/reminder/avatar-telegram.png" alt="Reminder icon" width="96" height="96" style="border-radius:50%;max-height:none"><strong>Reminder · Nomadigit</strong></div></div>
     <div class="cols">
       <div><h3>Do</h3><ul class="rules"><li>Use the mark alone at 16-48px (favicons, avatars, app icons); use the lockup when there is room for the name.</li><li>Keep clear space of at least half the mark's height on every side.</li><li>On photos or busy backgrounds place the inverse mark on a solid primary chip.</li><li>Use the mono variant when only one color is available (embossing, single-color print, system tray).</li></ul></div>
       <div><h3>Don't</h3><ul class="rules"><li>Don't recolor the route or the waypoint outside the palette, and don't swap their colors.</li><li>Don't stretch, rotate, outline, add shadows, gradients or glow.</li><li>Don't retype the wordmark in another font; always use the SVG.</li><li>Don't place the light mark on mid-tone backgrounds where contrast drops below 3:1.</li><li>Don't use the accent red for error states; errors use the darker semantic error color plus an icon and text.</li></ul></div>
@@ -143,8 +146,8 @@ const brand = require("@nomadigit/brand");</code></pre>
   <section id="use">
     <span class="eyebrow">Use it</span>
     <h2>Files</h2>
-    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.1/dist/brand.css"&gt;
-npm i git+https://github.com/Nomadigit/brand.git#v1.0.1</code></pre>
+    <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.2/dist/brand.css"&gt;
+npm i git+https://github.com/Nomadigit/brand.git#v1.0.2</code></pre>
     <div class="grid dl"><a href="dist/brand.css"><code>dist/brand.css</code><span>Fonts + tokens + base styles, one link</span></a><a href="dist/tokens.css"><code>dist/tokens.css</code><span>CSS variables, light + dark</span></a><a href="dist/tailwind.preset.cjs"><code>dist/tailwind.preset.cjs</code><span>Tailwind preset (CSS-variable colors)</span></a><a href="dist/tokens.flat.json"><code>dist/tokens.flat.json</code><span>Flat tokens for Go, Kotlin, scripts</span></a><a href="dist/tokens.json"><code>dist/tokens.json</code><span>W3C design tokens (Figma Tokens, Style Dictionary)</span></a><a href="dist/telegram-theme.json"><code>dist/telegram-theme.json</code><span>Telegram Mini App colors</span></a><a href="dist/marp-theme.css"><code>dist/marp-theme.css</code><span>Slide theme (Marp)</span></a><a href="dist/pptx-theme.json"><code>dist/pptx-theme.json</code><span>PowerPoint theme slots</span></a><a href="dist/docx-styles.json"><code>dist/docx-styles.json</code><span>Word document styles</span></a><a href="assets/logo/lockup-horizontal.svg"><code>assets/logo/lockup-horizontal.svg</code><span>Logo (light)</span></a><a href="assets/logo/lockup-horizontal-dark.svg"><code>assets/logo/lockup-horizontal-dark.svg</code><span>Logo (dark)</span></a><a href="assets/logo/app-icon.svg"><code>assets/logo/app-icon.svg</code><span>App icon</span></a><a href="assets/social/avatar-telegram.png"><code>assets/social/avatar-telegram.png</code><span>Telegram avatar</span></a><a href="assets/social/og-default.png"><code>assets/social/og-default.png</code><span>Default social card</span></a><a href="assets/fonts/fonts.css"><code>assets/fonts/fonts.css</code><span>Self-hosted Onest + JetBrains Mono</span></a></div>
   </section>
 </main>

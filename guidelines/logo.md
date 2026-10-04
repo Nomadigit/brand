@@ -18,6 +18,23 @@ It stands for moving and arriving. The name "Nomadigit" comes from *nomad* and *
 
 All SVGs are outlined, so they never depend on installed fonts.
 
+## Product icons
+
+A product (bot, app) may have its own icon. It is built from the master mark plus **one cue** for what the
+product does, drawn in the accent with the same rounded strokes. The product name next to it stays plain text:
+"Reminder · Nomadigit".
+
+| Product | Cue | Files (`assets/products/<id>/`) |
+|---|---|---|
+| Reminder | two ringing arcs above the arch | `mark*.svg`, `app-icon.svg`, `favicon.svg`, `icon-192/512.png`, `apple-touch-icon.png`, `avatar-telegram.png` |
+
+- Use the product icon wherever the product appears on its own: bot avatar, Mini App favicon, app icon, store listing.
+  Use the master mark for Nomadigit itself and in personal documents.
+- Adding a product means adding a glyph to `scripts/lib/products.ts` (concentric with the arch, 3-unit stroke, accent
+  color) and an entry in `tokens/brand.json` → `products`, then running `npm run build`. Product repos copy the generated
+  files and never redraw them.
+- A cue has to read at 28px (Telegram chat list). If it doesn't, simplify it. Don't make it smaller.
+
 ## Rules
 
 - **Mark alone at 16–48px** (favicons, avatars, small UI). Use the **lockup** when the name fits.

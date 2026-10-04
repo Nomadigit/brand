@@ -158,6 +158,9 @@ export function siteHtml(brand: BrandFile): string {
       <div class="tile p"><img src="assets/logo/mark-inverse.svg" alt="Inverse mark on petrol" width="72" height="72"></div>
       <div class="tile s"><img src="assets/logo/app-icon.svg" alt="App icon" style="max-height:96px;border-radius:22%"></div>
     </div>
+    ${(brand.products ?? []).length ? `<h3 style="margin:0">Product icons</h3>
+    <p class="muted" style="margin:0;max-width:62ch">The master mark plus one cue for what the product does. The name next to it stays plain text.</p>
+    <div class="grid">${(brand.products as any[]).map((p) => `<div class="tile s" style="gap:12px"><img src="assets/products/${p.id}/avatar-telegram.png" alt="${esc(p.name)} icon" width="96" height="96" style="border-radius:50%;max-height:none"><strong>${esc(p.displayName ?? p.name)}</strong></div>`).join("")}</div>` : ""}
     <div class="cols">
       <div><h3>Do</h3><ul class="rules">${list(brand.logo?.usage?.do)}</ul></div>
       <div><h3>Don't</h3><ul class="rules">${list(brand.logo?.usage?.dont)}</ul></div>

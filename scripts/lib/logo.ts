@@ -9,6 +9,20 @@ export interface MarkColors {
   dot: string;
 }
 
+export interface Bounds {
+  x0: number;
+  y0: number;
+  x1: number;
+  y1: number;
+}
+
+/** Anything drawn on the 32-unit mark grid: the master mark, or a product mark built on it. */
+export interface Glyph {
+  shapes: (c: MarkColors) => string;
+  /** Visual bounds inside the 32x32 grid (stroke caps and dots included). */
+  bounds: Bounds;
+}
+
 // Visual bounds of the mark inside its 32x32 grid (stroke caps and dot included).
 export const MARK = { x0: 5.25, y0: 4.25, x1: 26.75, y1: 27.75, grid: 32 };
 const ROUTE = "M7.25 25.25V14.25a8 8 0 0 1 16 0v3";
@@ -23,6 +37,8 @@ export function markShapes(c: MarkColors): string {
   );
 }
 
+export const MASTER: Glyph = { shapes: markShapes, bounds: MARK };
+
 export function svgDoc(width: number, height: number, body: string, title: string): string {
   const w = round(width);
   const h = round(height);
@@ -31,26 +47,28 @@ export function svgDoc(width: number, height: number, body: string, title: strin
 
 export const round = (n: number) => Math.round(n * 100) / 100;
 
-/** Mark scaled so its visual height is `h`, visual top-left at (x, y). */
-export function placeMark(c: MarkColors, x: number, y: number, h: number): string {
-  const s = h / (MARK.y1 - MARK.y0);
-  return `<g transform="translate(${round(x - MARK.x0 * s)} ${round(y - MARK.y0 * s)}) scale(${round(s * 1000) / 1000})">${markShapes(c)}</g>`;
+/** Glyph scaled so its visual height is `h`, visual top-left at (x, y). */
+export function placeMark(c: MarkColors, x: number, y: number, h: number, glyph: Glyph = MASTER): string {
+  const b = glyph.bounds;
+  const s = h / (b.y1 - b.y0);
+  return `<g transform="translate(${round(x - b.x0 * s)} ${round(y - b.y0 * s)}) scale(${round(s * 1000) / 1000})">${glyph.shapes(c)}</g>`;
 }
 
-export function markWidth(h: number): number {
-  return ((MARK.x1 - MARK.x0) / (MARK.y1 - MARK.y0)) * h;
+export function markWidth(h: number, glyph: Glyph = MASTER): number {
+  const b = glyph.bounds;
+  return ((b.x1 - b.x0) / (b.y1 - b.y0)) * h;
 }
 
-export function markSvg(c: MarkColors, title = "Nomadigit"): string {
-  return svgDoc(MARK.grid, MARK.grid, markShapes(c), title);
+export function markSvg(c: MarkColors, title = "Nomadigit", glyph: Glyph = MASTER): string {
+  return svgDoc(MARK.grid, MARK.grid, glyph.shapes(c), title);
 }
 
 /** Rounded-square app icon: inverse mark centered on the primary color. */
-export function appIconSvg(bg: string, c: MarkColors, size = 512, markRatio = 0.6, radiusRatio = 0.225, title = "Nomadigit"): string {
+export function appIconSvg(bg: string, c: MarkColors, size = 512, markRatio = 0.6, radiusRatio = 0.225, title = "Nomadigit", glyph: Glyph = MASTER): string {
   const h = size * markRatio;
-  const w = markWidth(h);
+  const w = markWidth(h, glyph);
   const rect = radiusRatio > 0 ? `<rect width="${size}" height="${size}" rx="${round(size * radiusRatio)}" fill="${bg}"/>` : `<rect width="${size}" height="${size}" fill="${bg}"/>`;
-  return svgDoc(size, size, rect + placeMark(c, (size - w) / 2, (size - h) / 2, h), title);
+  return svgDoc(size, size, rect + placeMark(c, (size - w) / 2, (size - h) / 2, h, glyph), title);
 }
 
 const WORD = "nomadigit";

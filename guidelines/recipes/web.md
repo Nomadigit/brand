@@ -3,7 +3,7 @@
 ## Fastest: one stylesheet
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.1/dist/brand.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.2/dist/brand.css">
 ```
 
 `brand.css` contains the fonts, all tokens as CSS variables (light and dark), and base styles for body, headings, links, code
@@ -12,7 +12,7 @@ and focus. A full starter page is in `templates/web/starter.html`.
 ## npm project (Vite, Next, etc.)
 
 ```bash
-npm i git+https://github.com/Nomadigit/brand.git#v1.0.1
+npm i git+https://github.com/Nomadigit/brand.git#v1.0.2
 ```
 
 - Use the `git+https` form. `github:` shorthand writes an SSH URL into `package-lock.json`, and CI

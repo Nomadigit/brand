@@ -10,6 +10,7 @@ import pngToIco from "png-to-ico";
 import { validateBrand, resolveColors } from "../src";
 import { appIconSvg, lockupSvg, markSvg, wordmarkSvg, type MarkColors } from "./lib/logo";
 import { ogSvg } from "./lib/og";
+import { GLYPHS } from "./lib/products";
 
 const ROOT = path.resolve(__dirname, "..");
 const brand = validateBrand(JSON.parse(fs.readFileSync(path.join(ROOT, "tokens/brand.json"), "utf8")));
@@ -69,6 +70,26 @@ writePng("social/avatar-github.png", appIconSvg(light.primary, C.inverse, 460, 0
 const og = ogSvg(brand, { title: brand.identity.tagline ?? brand.meta.name, kicker: brand.identity.website?.replace(/^https?:\/\//, "") });
 writeSvg("social/og-default.svg", og);
 writePng("social/og-default.png", og, 1200);
+
+// Product icons: master mark + one cue, same colors and sizes as the brand's own icons.
+fs.rmSync(path.join(ROOT, "assets/products"), { recursive: true, force: true });
+for (const product of (brand.products ?? []) as { id: string; name: string; glyph: string; displayName?: string }[]) {
+  const glyph = GLYPHS[product.glyph];
+  if (!glyph) throw new Error(`products: unknown glyph "${product.glyph}" for "${product.id}" (see scripts/lib/products.ts)`);
+  const title = product.displayName ?? product.name;
+  const dir = `products/${product.id}`;
+  writeSvg(`${dir}/mark.svg`, markSvg(C.light, title, glyph));
+  writeSvg(`${dir}/mark-dark.svg`, markSvg(C.dark, title, glyph));
+  writeSvg(`${dir}/mark-mono.svg`, markSvg(C.mono, title, glyph));
+  writeSvg(`${dir}/mark-inverse.svg`, markSvg(C.inverse, title, glyph));
+  const icon = appIconSvg(light.primary, C.inverse, 512, 0.6, 0.225, title, glyph);
+  writeSvg(`${dir}/app-icon.svg`, icon);
+  writeSvg(`${dir}/favicon.svg`, icon);
+  writePng(`${dir}/icon-192.png`, icon, 192);
+  writePng(`${dir}/icon-512.png`, icon, 512);
+  writePng(`${dir}/apple-touch-icon.png`, appIconSvg(light.primary, C.inverse, 512, 0.58, 0, title, glyph), 180);
+  writePng(`${dir}/avatar-telegram.png`, appIconSvg(light.primary, C.inverse, 640, 0.52, 0, title, glyph), 640);
+}
 
 // Fonts: copy the woff2 subsets this brand uses and write one stylesheet for them.
 function copyFonts() {

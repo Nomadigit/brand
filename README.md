@@ -28,12 +28,12 @@ formats for every stack, plus guidelines that people and AI agents follow.
 
 ```html
 <!-- any web page -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.1/dist/brand.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.2/dist/brand.css">
 ```
 
 ```bash
-npm i git+https://github.com/Nomadigit/brand.git#v1.0.1      # npm projects: CSS, Tailwind preset, API
-curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.1/dist/tokens.flat.json   # Go, Kotlin, anything
+npm i git+https://github.com/Nomadigit/brand.git#v1.0.2      # npm projects: CSS, Tailwind preset, API
+curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.2/dist/tokens.flat.json   # Go, Kotlin, anything
 ```
 
 The recipes in [`guidelines/recipes/`](guidelines/recipes/) cover web, Telegram, slides, CV and docs, social images, and native code.

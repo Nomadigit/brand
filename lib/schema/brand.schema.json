@@ -601,6 +601,41 @@
                     "type": "string"
                 }
             }
+        },
+        "products": {
+            "type": "array",
+            "description": "Products that get their own icon: the master mark plus one cue (see scripts/lib/products.ts). Never their own palette or typeface.",
+            "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "required": [
+                    "id",
+                    "name",
+                    "glyph"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]+$"
+                    },
+                    "name": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "glyph": {
+                        "type": "string",
+                        "minLength": 1,
+                        "description": "Key of the product glyph in scripts/lib/products.ts"
+                    },
+                    "displayName": {
+                        "type": "string",
+                        "description": "How the product is titled, e.g. in Telegram: \"Reminder · Nomadigit\""
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
         }
     }
 }
