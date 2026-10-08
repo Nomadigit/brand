@@ -27,6 +27,7 @@ product does, drawn in the accent with the same rounded strokes. The product nam
 | Product | Cue | Files (`assets/products/<id>/`) |
 |---|---|---|
 | Reminder | two ringing arcs above the arch | `mark*.svg`, `app-icon.svg`, `favicon.svg`, `icon-192/512.png`, `apple-touch-icon.png`, `avatar-telegram.png` |
+| Piece | own mark: hand-drawn ring with one slice in the accent (approved exception, replaces the arch) | same set |
 
 - Use the product icon wherever the product appears on its own: bot avatar, Mini App favicon, app icon, store listing.
   Use the master mark for Nomadigit itself and in personal documents.
