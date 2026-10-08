@@ -1,6 +1,6 @@
 {
   "meta.name": "Nomadigit",
-  "meta.version": "1.0.2",
+  "meta.version": "1.1.0",
   "identity.displayName": "Nomadigit",
   "identity.tagline": "Software made on the move",
   "brand.signature": "Danil Shubin · Nomadigit",
@@ -52,8 +52,8 @@
   "font.print.stack": "Onest, Arial, sans-serif",
   "font.display.family": "Onest",
   "font.display.stack": "Onest, system-ui, sans-serif",
-  "font.mono.family": "JetBrains Mono",
-  "font.mono.stack": "\"JetBrains Mono\", ui-monospace, monospace",
+  "font.mono.family": "Geist Mono",
+  "font.mono.stack": "\"Geist Mono\", ui-monospace, monospace",
   "font.size.xs": "12px",
   "font.size.sm": "14px",
   "font.size.body": "16px",

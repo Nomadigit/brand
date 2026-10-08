@@ -47,7 +47,7 @@ export function ogSvg(brand: BrandFile, opts: OgOptions): string {
 
   let kicker = "";
   if (opts.kicker) {
-    const mono = fontFaces("jetbrains-mono", 400);
+    const mono = fontFaces("geist-mono", 400);
     kicker = `<path transform="translate(${M} ${H - M})" d="${textPath(opts.kicker, mono, kickerSize).d}" fill="${scale["200"] ?? onPrimary}"/>`;
   }
 

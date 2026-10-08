@@ -22,12 +22,12 @@ h3 { font-size: 32px; color: #04556D; }
 p, li { max-width: 46ch; }
 strong { color: #04556D; font-weight: 600; }
 a { color: #04556D; }
-code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.85em; background: #EDF3F6; padding: 0.1em 0.35em; border-radius: 6px; }
-pre { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 22px; background: #0A1113; color: #E6ECEF; padding: 24px 28px; border-radius: 12px; }
+code { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.85em; background: #EDF3F6; padding: 0.1em 0.35em; border-radius: 6px; }
+pre { font-family: "Geist Mono", ui-monospace, monospace; font-size: 22px; background: #0A1113; color: #E6ECEF; padding: 24px 28px; border-radius: 12px; }
 pre code { background: none; padding: 0; }
 blockquote { margin: 0; padding-left: 24px; border-left: 4px solid #FC5950; color: #526066; }
-section::after { position: absolute; padding: 0; line-height: 1; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 16px; color: #526066; right: 88px; bottom: 36px; }
-header, footer { position: absolute; margin: 0; padding: 0; line-height: 1; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 16px; color: #526066; left: 88px; right: 160px; }
+section::after { position: absolute; padding: 0; line-height: 1; font-family: "Geist Mono", ui-monospace, monospace; font-size: 16px; color: #526066; right: 88px; bottom: 36px; }
+header, footer { position: absolute; margin: 0; padding: 0; line-height: 1; font-family: "Geist Mono", ui-monospace, monospace; font-size: 16px; color: #526066; left: 88px; right: 160px; }
 header { top: 36px; }
 footer { bottom: 36px; }
 

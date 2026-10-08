@@ -13,8 +13,9 @@ guides are in [`guidelines/`](guidelines/) and the values are in [`tokens/brand.
 1. **Never hardcode brand values.** Take colors, fonts, sizes, radii and spacing from the generated files
    in `dist/` (CSS variables, Tailwind preset, flat JSON). Never retype a hex code from this page
    into product code. A hex value that doesn't come from the tokens is a bug.
-2. **One typeface: Onest.** Headings use 700, emphasis 600, text 400. Code, dates, IDs and tabular
-   numbers use **JetBrains Mono**. Never add a second text font, a serif, or a "display" font.
+2. **One typeface: Onest.** Headings use 700, emphasis 600, text 400. Code, commands and IDs use
+   **Geist Mono**. Labels and table numbers stay in Onest (`tabular-nums`). Never add a second text
+   font, a serif, or a "display" font.
 3. **Colors have roles.** Petrol `primary` is used for actions, links and the mark. Red `accent` is
    the waypoint dot and **at most one focal point per screen**. Never use accent for body text, large
    fills or errors. Errors use `error` (burgundy) plus an icon and text.
