@@ -37,7 +37,7 @@ guides are in [`guidelines/`](guidelines/) and the values are in [`tokens/brand.
   accent. Product icons are listed in `tokens/brand.json` → `products`, drawn in `scripts/lib/products.ts` and generated
   into `assets/products/<id>/`. Never draw one by hand in a product repo. To add a product, add a glyph there and an entry
   in `products`, then rebuild. Current products: **Reminder** (`assets/products/reminder/`, ringing arcs), **Piece**
-  (`assets/products/piece/`, a pie slice inside the arch).
+  (`assets/products/piece/`, an approved exception: its own ring-and-slice mark instead of the arch).
 
 ## What to read for the task at hand
 

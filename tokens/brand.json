@@ -33,7 +33,7 @@
     {
       "id": "piece",
       "name": "Piece",
-      "glyph": "slice",
+      "glyph": "piece",
       "displayName": "Piece · Nomadigit",
       "description": "Share the trip. Everyone gets a piece."
     }
