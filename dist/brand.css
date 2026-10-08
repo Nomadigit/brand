@@ -19,5 +19,6 @@ h2 { font-size: var(--font-size-h2); font-weight: var(--font-weight-display); }
 h3 { font-size: var(--font-size-h3); font-weight: var(--font-weight-bold); }
 a { color: var(--color-link); text-underline-offset: 3px; }
 code, kbd, pre, samp { font-family: var(--font-mono-family); }
+code, kbd, samp { font-size: 0.95em; }
 :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; } }

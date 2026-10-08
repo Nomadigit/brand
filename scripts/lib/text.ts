@@ -13,7 +13,7 @@ const SUBSETS = ["latin", "latin-ext", "cyrillic", "cyrillic-ext"];
 type Font = opentype.Font;
 const cache = new Map<string, Font[]>();
 
-export function fontFaces(family: "onest" | "jetbrains-mono", weight: number): Font[] {
+export function fontFaces(family: "onest" | "geist-mono", weight: number): Font[] {
   const key = `${family}-${weight}`;
   const hit = cache.get(key);
   if (hit) return hit;

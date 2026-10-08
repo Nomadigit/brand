@@ -28,7 +28,7 @@
   --color-primary-900: #012632;
   --font-web-family: Onest, system-ui, sans-serif;
   --font-display-family: Onest, system-ui, sans-serif;
-  --font-mono-family: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono-family: "Geist Mono", ui-monospace, monospace;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 600;
@@ -47,7 +47,7 @@
   --letter-spacing-display: -0.02em;
   --letter-spacing-heading: -0.01em;
   --letter-spacing-body: 0;
-  --letter-spacing-label: 0.08em;
+  --letter-spacing-label: 0.06em;
   --spacing-unit: 8px;
   --radius: 10px;
   --space-1: 4px;

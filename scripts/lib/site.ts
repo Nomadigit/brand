@@ -65,7 +65,7 @@ export function siteHtml(brand: BrandFile): string {
     ["assets/logo/app-icon.svg", "App icon"],
     ["assets/social/avatar-telegram.png", "Telegram avatar"],
     ["assets/social/og-default.png", "Default social card"],
-    ["assets/fonts/fonts.css", "Self-hosted Onest + JetBrains Mono"],
+    ["assets/fonts/fonts.css", "Self-hosted Onest + Geist Mono"],
   ];
 
   return `<!doctype html>
@@ -92,9 +92,9 @@ export function siteHtml(brand: BrandFile): string {
   .logo-dark { display: none; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .logo-light { display: none; } :root:not([data-theme="light"]) .logo-dark { display: block; } }
   :root[data-theme="dark"] .logo-light { display: none; } :root[data-theme="dark"] .logo-dark { display: block; }
-  .theme-btn { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-mono-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; background: var(--color-surface-muted); color: var(--color-text); border: 0; border-radius: var(--radius-pill); padding: 8px 12px; cursor: pointer; }
+  .theme-btn { font: var(--font-weight-bold) var(--font-size-xs)/1 var(--font-web-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; background: var(--color-surface-muted); color: var(--color-text); border: 0; border-radius: var(--radius-pill); padding: 8px 12px; cursor: pointer; }
   main section { padding-block: var(--space-12); border-bottom: 1px solid var(--color-border); display: grid; gap: var(--space-6); }
-  .eyebrow { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-mono-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; color: var(--color-muted); }
+  .eyebrow { font: var(--font-weight-bold) var(--font-size-xs)/1 var(--font-web-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; color: var(--color-muted); }
   .hero h1 { font-size: clamp(36px, 6vw, var(--font-size-display)); max-width: 18ch; margin: 0; }
   .hero p { margin: 0; max-width: 60ch; color: var(--color-muted); font-size: var(--font-size-lg); }
   h2 { margin: 0; }
@@ -107,7 +107,7 @@ export function siteHtml(brand: BrandFile): string {
   .table-wrap { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; font-size: var(--font-size-sm); }
   th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
-  thead th { font: var(--font-weight-medium) var(--font-size-xs)/1 var(--font-mono-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; color: var(--color-muted); }
+  thead th { font: var(--font-weight-bold) var(--font-size-xs)/1 var(--font-web-family); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; color: var(--color-muted); }
   th[scope="row"] { font-weight: 400; white-space: nowrap; }
   .sw { display: inline-block; width: 22px; height: 22px; border-radius: 6px; vertical-align: middle; margin-right: 8px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-text) 15%, transparent); }
   td code, th code { font-size: 12.5px; }

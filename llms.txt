@@ -1,6 +1,6 @@
 # Nomadigit brand
 
-> Brand kit for Nomadigit projects (sites, Telegram bots and Mini Apps, apps, slides, CV, images). Petrol #04556D primary, signal red #FC5950 accent (one focal point only), one typeface (Onest) plus JetBrains Mono for code, light and dark themes. Never hardcode values; read them from the generated files below.
+> Brand kit for Nomadigit projects (sites, Telegram bots and Mini Apps, apps, slides, CV, images). Petrol #04556D primary, signal red #FC5950 accent (one focal point only), one typeface (Onest) plus Geist Mono for code, light and dark themes. Never hardcode values; read them from the generated files below.
 
 ## Start here
 

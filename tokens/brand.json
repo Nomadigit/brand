@@ -2,7 +2,7 @@
   "$schema": "../schema/brand.schema.json",
   "meta": {
     "name": "Nomadigit",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Nomadigit brand tokens: the single source for every site, bot, app, deck, document and image.",
     "updatedAt": "2026-10-04"
   },
@@ -179,7 +179,7 @@
       "src": "assets/fonts/fonts.css"
     },
     "monoFont": {
-      "family": "JetBrains Mono",
+      "family": "Geist Mono",
       "fallback": [
         "ui-monospace",
         "monospace"
@@ -216,7 +216,7 @@
       "display": "-0.02em",
       "heading": "-0.01em",
       "body": "0",
-      "label": "0.08em"
+      "label": "0.06em"
     }
   },
   "spacing": {

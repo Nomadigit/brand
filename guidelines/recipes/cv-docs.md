@@ -1,6 +1,6 @@
 # Recipe: CV, letters, PDF and DOCX
 
-- **Name block:** "Danil Shubin" in Onest 700. The role goes on one line in primary. Contacts go on one line in JetBrains Mono.
+- **Name block:** "Danil Shubin" in Onest 700. The role goes on one line in primary. Contacts go on one line in Geist Mono.
 - **Signature:** footer or closing line "Danil Shubin · Nomadigit", optionally with `mark-mono.svg` at 12–14px.
 - **Type sizes (print):** name 20–22pt, section headings 12–14pt in primary, body 10.5–11pt, meta 9pt in muted.
 - **Color:** text, muted and primary only. No accent red in documents except the dot in the mark.

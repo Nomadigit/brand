@@ -16,7 +16,7 @@ formats for every stack, plus guidelines that people and AI agents follow.
 
 | Path | What |
 |---|---|
-| `tokens/brand.json` | The brand: colors (light/dark), Onest + JetBrains Mono, sizes, spacing, logo rules, voice |
+| `tokens/brand.json` | The brand: colors (light/dark), Onest + Geist Mono, sizes, spacing, logo rules, voice |
 | `dist/` | Generated: `tokens.css`, `brand.css`, `tailwind.preset.cjs`, `tokens.flat.json`, `tokens.json` (W3C), `telegram-theme.json`, `telegram-mini-app.js`, `marp-theme.css`, `pptx-theme.json`, `docx-styles.json`, `pdf.css`, `email.json`, `bundle/` |
 | `assets/` | Generated: logo SVG/PNG, favicons, app icon, Telegram/GitHub avatars, OG image, self-hosted fonts |
 | `guidelines/` | Logo, color, typography, layout, icons, motion, imagery, voice, and recipes per medium |
@@ -28,12 +28,12 @@ formats for every stack, plus guidelines that people and AI agents follow.
 
 ```html
 <!-- any web page -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.0.2/dist/brand.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nomadigit/brand@v1.1.0/dist/brand.css">
 ```
 
 ```bash
-npm i git+https://github.com/Nomadigit/brand.git#v1.0.2      # npm projects: CSS, Tailwind preset, API
-curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.0.2/dist/tokens.flat.json   # Go, Kotlin, anything
+npm i git+https://github.com/Nomadigit/brand.git#v1.1.0      # npm projects: CSS, Tailwind preset, API
+curl -fsSL https://raw.githubusercontent.com/Nomadigit/brand/v1.1.0/dist/tokens.flat.json   # Go, Kotlin, anything
 ```
 
 The recipes in [`guidelines/recipes/`](guidelines/recipes/) cover web, Telegram, slides, CV and docs, social images, and native code.
@@ -54,4 +54,4 @@ Release by tagging `vX.Y.Z`. Consumers pin tags.
 ## License
 
 Code: [MIT](LICENSE). The Nomadigit name, logo and mark are not covered by the MIT license; see [TRADEMARKS.md](TRADEMARKS.md).
-Fonts: SIL Open Font License 1.1 ([Onest](assets/fonts/OFL-onest.txt), [JetBrains Mono](assets/fonts/OFL-jetbrains-mono.txt)).
+Fonts: SIL Open Font License 1.1 ([Onest](assets/fonts/OFL-onest.txt), [Geist Mono](assets/fonts/OFL-geist-mono.txt)).

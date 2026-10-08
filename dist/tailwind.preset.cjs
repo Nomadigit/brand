@@ -43,7 +43,7 @@ module.exports = {
           "sans-serif"
         ],
         "mono": [
-          "JetBrains Mono",
+          "Geist Mono",
           "ui-monospace",
           "monospace"
         ]
@@ -73,7 +73,7 @@ module.exports = {
         "display": "-0.02em",
         "heading": "-0.01em",
         "body": "0",
-        "label": "0.08em"
+        "label": "0.06em"
       },
       "borderRadius": {
         "DEFAULT": "10px",
