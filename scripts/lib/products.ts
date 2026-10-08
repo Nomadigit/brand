@@ -27,7 +27,23 @@ function ringing(c: MarkColors): string {
   );
 }
 
+/**
+ * A pie slice inside the arch, apex on its centre, opening to the upper right: one piece of
+ * the shared whole. Filled, with a round-joined outline so the corners match the strokes.
+ */
+function slice(c: MarkColors): string {
+  const r = 4;
+  const [x1, y1] = arcPoint(r, 80);
+  const [x2, y2] = arcPoint(r, 10);
+  return (
+    markShapes(c) +
+    `<path d="M${ARCH.cx} ${ARCH.cy}L${x1} ${y1}A${r} ${r} 0 0 1 ${x2} ${y2}Z" fill="${c.dot}" stroke="${c.dot}" stroke-width="2" stroke-linejoin="round"/>`
+  );
+}
+
 export const GLYPHS: Record<string, Glyph> = {
   // Left arc starts at 150° (x 4.42) and the right one ends at 30° (x 26.08); both peak at y 2.92.
   ringing: { shapes: ringing, bounds: { x0: 2.92, y0: 1.42, x1: 27.58, y1: 27.75 } },
+  // Outer edge sits at r 5 (4 + half the outline), 1 unit clear of the arch's inner edge (r 6).
+  slice: { shapes: slice, bounds: { x0: 5.25, y0: 4.25, x1: 26.75, y1: 27.75 } },
 };
