@@ -51,7 +51,7 @@ export function ogSvg(brand: BrandFile, opts: OgOptions): string {
     kicker = `<path transform="translate(${M} ${H - M})" d="${textPath(opts.kicker, mono, kickerSize).d}" fill="${scale["200"] ?? onPrimary}"/>`;
   }
 
-  return svgDoc(W, H, `<rect width="${W}" height="${H}" fill="${light.primary}"/>${deco}${logo.body}${title}${kicker}`, opts.title);
+  return svgDoc(W, H, `<rect width="${W}" height="${H}" fill="${light.primary}"/>${deco}${lock.body}${title}${kicker}`, opts.title);
 }
 
 export interface BannerOptions extends OgOptions {
