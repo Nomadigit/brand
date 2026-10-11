@@ -5,7 +5,7 @@
 npm run og -- "Напоминания, которые понимают людей" --kicker "t.me/reminder · Nomadigit" --out og.png
 npm run og -- "Title" --size square --out post.png    # 1080×1080
 npm run og -- "Title" --size story  --out story.png   # 1080×1920
-npm run og -- "Senior Backend Developer" --kicker "Java · Kotlin · Spring Boot" --size linkedin --out cover.png   # 1584×396
+npm run og -- "Senior Backend Developer" --kicker "Java · Kotlin · Spring Boot" --size linkedin --mark --out cover.png   # 1584×396
 npm run og -- "Software made on the move" --size linkedin-company --out cover.png                               # 1128×191
 ```
 
@@ -16,10 +16,11 @@ so the PNG renders identically everywhere. The default card is `assets/social/og
 ## LinkedIn covers
 
 `--size linkedin` (profile, 1584×396) and `--size linkedin-company` (page, 1128×191) use the same style laid out in a
-row: the title and kicker start at 27% of the width and sit vertically centered, the inverse lockup closes the row on
-the right, and the faint route frames it, bleeding off the bottom right. The left 27% stays empty on purpose: LinkedIn
-draws the profile photo over the bottom-left corner. On a personal profile the name is already shown under the photo,
-so the title is the role ("Senior Backend Developer") and the kicker the stack, not the name.
+row: the title and kicker start at 27% of the width and sit vertically centered, the logo closes the row on the right,
+and the faint route frames it, bleeding off the bottom right. The left 27% stays empty on purpose: LinkedIn draws the
+profile photo over the bottom-left corner. On a personal profile the name is already shown under the photo, so the title
+is the role ("Senior Backend Developer") and the kicker the stack, not the name, and `--mark` draws the mark alone
+instead of the lockup: the page is about the person, not the company. Company pages keep the lockup.
 
 ## Rules
 

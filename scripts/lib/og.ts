@@ -4,7 +4,7 @@
  */
 import type { BrandFile } from "../../src";
 import { resolveColors } from "../../src";
-import { lockupBody, markShapes, round, svgDoc } from "./logo";
+import { lockupBody, markShapes, markWidth, placeMark, round, svgDoc } from "./logo";
 import { fontFaces, textPath, wrap } from "./text";
 
 export interface OgOptions {
@@ -51,12 +51,14 @@ export function ogSvg(brand: BrandFile, opts: OgOptions): string {
     kicker = `<path transform="translate(${M} ${H - M})" d="${textPath(opts.kicker, mono, kickerSize).d}" fill="${scale["200"] ?? onPrimary}"/>`;
   }
 
-  return svgDoc(W, H, `<rect width="${W}" height="${H}" fill="${light.primary}"/>${deco}${lock.body}${title}${kicker}`, opts.title);
+  return svgDoc(W, H, `<rect width="${W}" height="${H}" fill="${light.primary}"/>${deco}${logo.body}${title}${kicker}`, opts.title);
 }
 
 export interface BannerOptions extends OgOptions {
   /** Share of the width (from the left) the host overlays with a profile photo: nothing is drawn there. */
   avatarSafe?: number;
+  /** "lockup" (mark + name, default) or "mark" alone, for a personal profile where the name is a person's. */
+  logo?: "lockup" | "mark";
 }
 
 /**
@@ -74,17 +76,25 @@ export function bannerSvg(brand: BrandFile, opts: BannerOptions): string {
   const scale = brand.colors.scale?.primary ?? {};
   const inverse = { route: onPrimary, dot: dark.accent };
 
-  // The route from the mark, oversized and faint, frames the lockup and bleeds off the bottom right.
-  const lockSize = round(H * 0.11);
-  const probe = lockupBody(inverse, onPrimary, lockSize);
-  const lockX = W - M - probe.width;
-  const bgScale = (H * 2) / 32;
-  const deco = `<g transform="translate(${round(lockX + probe.width / 2 - 15.25 * bgScale)} ${round(-4 * bgScale)}) scale(${round(bgScale)})" opacity="0.14">${markShapes({ route: onPrimary, dot: "none" })}</g>`;
+  // The logo closes the row on the right: the lockup, or the mark alone, vertically centered.
+  let logo: { body: string; width: number };
+  if (opts.logo === "mark") {
+    const h = round(H * 0.3);
+    const w = markWidth(h);
+    logo = { body: placeMark(inverse, W - M - w, (H - h) / 2, h), width: w };
+  } else {
+    const size = round(H * 0.11);
+    const probe = lockupBody(inverse, onPrimary, size);
+    logo = { body: lockupBody(inverse, onPrimary, size, W - M - probe.width, (H - probe.height) / 2).body, width: probe.width };
+  }
+  const logoX = W - M - logo.width;
 
-  const lock = lockupBody(inverse, onPrimary, lockSize, lockX, (H - probe.height) / 2);
+  // The route from the mark, oversized and faint, frames the logo and bleeds off the bottom right.
+  const bgScale = (H * 2) / 32;
+  const deco = `<g transform="translate(${round(logoX + logo.width / 2 - 15.25 * bgScale)} ${round(-4 * bgScale)}) scale(${round(bgScale)})" opacity="0.14">${markShapes({ route: onPrimary, dot: "none" })}</g>`;
 
   const left = round(W * (opts.avatarSafe ?? 0.27));
-  const maxWidth = lockX - M - left;
+  const maxWidth = logoX - M - left;
   const bold = fontFaces("onest", 700);
   let size = round(H * 0.16);
   let lines = wrap(opts.title, bold, size, maxWidth, -0.02);
@@ -108,5 +118,5 @@ export function bannerSvg(brand: BrandFile, opts: BannerOptions): string {
     kicker = `<path transform="translate(${left} ${round(y)})" d="${textPath(opts.kicker, mono, kickerSize).d}" fill="${scale["200"] ?? onPrimary}"/>`;
   }
 
-  return svgDoc(W, H, `<rect width="${W}" height="${H}" fill="${light.primary}"/>${deco}${lock.body}${title}${kicker}`, opts.title);
+  return svgDoc(W, H, `<rect width="${W}" height="${H}" fill="${light.primary}"/>${deco}${logo.body}${title}${kicker}`, opts.title);
 }
