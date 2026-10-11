@@ -45,7 +45,7 @@ npm ci
 # edit tokens/brand.json
 npm run build      # lib/ + assets/ + dist/
 npm test           # schema + transformers + WCAG contrast of every color pair, light and dark
-npm run og -- "Title" --out card.png   # social card
+npm run og -- "Title" --out card.png   # social card (--size og|square|story|linkedin|linkedin-company)
 ```
 
 `dist/`, `assets/` and `lib/` are committed, so consumers never need a build step. CI fails if they are stale.
