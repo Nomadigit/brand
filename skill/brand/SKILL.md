@@ -20,7 +20,8 @@ The brand kit lives in the repository **Nomadigit/brand**. Use the local clone i
    - Any other language: `dist/tokens.flat.json`; Telegram: `dist/telegram-theme.json`, `dist/telegram-mini-app.js`
    - Slides: `templates/slides/deck.md` + `dist/marp-theme.css`; docs: `dist/docx-styles.json`, `dist/pdf.css`
    - Logo/icons: `assets/logo/*`, `assets/favicon/*`, `assets/social/*` (copy the files, never redraw them)
-4. For social cards, run `npm run og -- "Title" --kicker "..." --out file.png` inside the brand repo.
+4. For social cards, run `npm run og -- "Title" --kicker "..." --out file.png` inside the brand repo
+   (`--size linkedin` for a profile cover, `--size linkedin-company` for a page cover).
 5. Before finishing, go through the done checklist in `AGENTS.md`.
 
 ## Never
